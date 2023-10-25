@@ -1,0 +1,11 @@
+/*Статические стили для постоянных элементов*/
+.h2_center_28_pb {
+	color: var(--gray-900, #1E212C);
+	text-align: center;
+	font-family: Ubuntu;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 150%;
+	padding-bottom: 25px;
+}

@@ -1,0 +1,39 @@
+{% load static %}
+<nav class="nav_block">
+	<div class="nav_nav">
+			<div class="nav_logo">
+				<a href="{% url 'home' %}">
+					<img src="{% static 'img/header/logo.svg' %}" alt="Лого">
+				</a>
+			</div>
+			<div class="nav_navigation">
+				<ul class="nav_list">
+					<li class="nav_item"><a href="#" class="nav_link">About Us</a></li>
+					<li class="nav_item"><a href="#" class="nav_link">Services</a></li>
+					<li class="nav_item"><a href="#" class="nav_link">Work</a></li>
+					<li class="nav_item"><a href="#" class="nav_link">News</a></li>
+					<li class="nav_item"><a href="#" class="nav_link">Contacts</a></li>
+				</ul>
+			</div>
+			<div class="nav_links_block">
+					<div class="links_block">
+						<div class="links_block_icon">
+							<img src="{% static 'img/header/iPhone.svg' %}" alt="Фото">
+						</div>
+						<div class="links_block_link">
+							<p class="block_link_title">Call us</p>
+							<p><a href="tel:+(405) 555-0128" class="block_link_link">(405) 555-0128</a></p>
+						</div>
+					</div>
+					<div class="links_block">
+						<div class="links_block_icon">
+							<img src="{% static 'img/header/Chat.svg' %}" alt="Фото">
+						</div>
+						<div class="links_block_link">
+							<p class="block_link_title">Talk to us</p>
+							<p><a href="mailto:hello@createx.com" class="block_link_link">hello@createx.com</a></p>
+						</div>
+					</div>
+			</div>
+	</div>
+</nav>

@@ -6,13 +6,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Ubuntu:wght@400;700&display=swap"
+		rel="stylesheet">
 	{% bootstrap_css %}
 		<link rel="stylesheet" href="{% static 'css/min_style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/statick_style.css' %}">
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	{% bootstrap_javascript jquery='full' %}
 	<title>Document</title>
 </head>
 <body>
-	
+	<div class="wrapper">
+		{% include 'include/header.html' %}
+		{% block content %}
+		{% endblock content %}
+		{% include 'include/discussFormBlock.html' %}
+		{% include 'include/footer.html' %}
+	</div>
 </body>
 </html>

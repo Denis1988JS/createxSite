@@ -1,0 +1,73 @@
+{% load static %}
+<div class="footer_block">
+	<footer class="footer_block_content">
+		<div class="footer_header_block">
+			<div class="footer_header_left">
+				<div class="footer_logo_Links">
+					<div class="footer_logo">
+						<a href="{% url 'home' %}">
+							<img src="{% static 'img/footer/logo.svg' %}" alt="Лого">
+						</a>
+					</div>
+					<div class="footer_social_links">
+						<a href="#"><img src="{% static 'img/footer/Whatsapp.svg' %}" alt="фото"></a>
+						<a href="#"><img src="{% static 'img/footer/Messanger.svg' %}" alt="фото"></a>
+						<a href="#"><img src="{% static 'img/footer/Facebook.svg' %}" alt="фото"></a>
+						<a href="#"><img src="{% static 'img/footer/Twitter.svg' %}" alt="фото"></a>
+						<a href="#"><img src="{% static 'img/footer/YouTube.svg' %}" alt="фото"></a>
+					</div>
+				</div>
+				<p class="footer_content">
+					Createx Construction Bureau has been successfully operating in the USA construction market since 2000. We are proud to
+					offer you quality construction and exemplary service. Our mission is to set the highest standards for construction
+					sphere.
+				</p>
+			</div>
+			<div class="footer_header_right">
+				<h2 class="footer_header_right_h2">
+					Let’s stay in touch
+				</h2>
+				<form action="#" class="subscribe_form" method="post" name="subscribe_form" id="subscribe_form">
+					<input type="text" placeholder="Your email address" class="subscribe" name="subscribe">
+					<input type="submit" value="subscribe" class="subscribeSubmit">
+					<p>*Subscribe to our newsletter to receive communications and early updates from Createx Construction Bureau.</p>
+				</form>
+			</div>
+		</div>
+		<div class="footer_center_block">
+			<div class="center_block_left">
+				<p class="footer_p_uppercase">HEAD OFFICE</p>
+				<ul class="footer_link_list">
+					<li class="footer_link_item">Address:<a href="#" class="footer_link">8502 Preston Rd. Inglewood, New York</a></li>
+					<li class="footer_link_item">Call: <a href="tel:+(405) 555-0128" class="footer_link">(405) 555-0128</a></li>
+					<li class="footer_link_item">Email: <a href="mailto:hello@createx.com" class="footer_link">hello@createx.com</a></li>
+				</ul>
+			</div>
+			<div class="center_block_center">
+				<p class="footer_p_uppercase">WHO WE ARE</p>
+				<ul class="footer_link_list">
+					<li class="footer_link_item"><a href="#" class="footer_link">About Us</a></li>
+					<li class="footer_link_item"><a href="#" class="footer_link">Available Positions</a></li>
+					<li class="footer_link_item"><a href="#" class="footer_link">Contacts</a></li>
+				</ul>
+			</div>
+			<div class="center_block_right">
+				<p class="footer_p_uppercase">OUR EXPERIENCE</p>
+				<ul class="footer_link_list">
+					<li class="footer_link_item"><a href="#" class="footer_link">Services</a></li>
+					<li class="footer_link_item"><a href="#" class="footer_link">Work</a></li>
+					<li class="footer_link_item"><a href="#" class="footer_link">News</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer_bottom_block">
+			<div class="bottom_block_left">
+				<p class="rights_reserved">© All rights reserved. Made with</p>
+			</div>
+			<div class="bottom_block_right">
+				<span class="btnTitle_goToTop">GO TO TOP</span>
+				<button class="goToTop"><img src="{% static 'img/footer/Up-chevron.png' %}" alt=""></button>
+			</div>
+		</div>
+	</footer>
+</div>
