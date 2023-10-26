@@ -21,6 +21,7 @@ from django.urls import path, include
 from createxApp import settings
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', include('createx.urls')),#Маршруты из приложения createx
 ]
 

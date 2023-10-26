@@ -68,9 +68,82 @@
 	font-size: 18px;
 	font-weight: 400;
 }
+/*Стилизация - главный слайдер - mainSlider*/
+.mainSlider {
+	margin-top: 70px;
+}
+.mainSlider_h2 {
+	width: 577px;
+	color: var(--white, #FFF);
+	font-family: Ubuntu;
+	font-size: 72px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 130%;
+	letter-spacing: 1px;
+	text-align: start;
+	margin-bottom: 25px;
+}
+.carousel-caption {
+	max-width: 1230px;
+	top: 220px;
+	left: 345px;
+	text-align: start;
+}
+.mainSlider_p {
+	width: 577px;
+	color: var(--white, #FFF);
+	font-family: Ubuntu;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%;
+	text-align: start;
+	margin-bottom: 60px;
+}
+.mainSlider_link {
+	width: 343px;
+	height: 52px;
+	color: var(--white, #FFF);
+	font-family: Ubuntu;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 52px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	padding: 0px 40px;
+	text-align: center;
+	border-radius: 4px;
+	border: 1px solid var(--white, #FFF);
+	display: inline-block;
+}
+.mainSlider_link:hover {
+	background-color: #FF5A30;
+	color: #FFF;
+	border: none;
+}
+.carousel-indicators li {
+	width: 150px;
+	opacity: 0.3;
+	height: 3px;
+}
+.carousel-control-next, .carousel-control-prev {
+	width: 48px;
+	height: 48px;
+	top: 50%;
+	border-radius: 48px;
+	background-color: #D7DADD;
+}
+.carousel-control-next {
+	right: 30px;
+}
+.carousel-control-prev {
+	left: 30px;
+}
 /*Стилизация - Форма discuss - discuss_block*/
 .discuss_block {
-	margin-top: 70px;
+
 	padding: 80px 0px;
 	width: 100%;
 	height: auto;
@@ -136,11 +209,11 @@
 	display: flex;
 	padding-top: 20px;
 }
-#iAgree {
+#id_userAgree {
 	width: fit-content;
 	display: inline-block;
-	
 }
+
 #iAgree_label {
 	padding: 0;
 	padding-left: 12px;
@@ -301,3 +374,4 @@
 	font-weight: 400;
 	padding-right: 15px;
 }
+/**/

@@ -3,18 +3,19 @@
 	<div class="discuss_block_form">
 		<div class="block_form_discuss">
 			<h2 class="h2_center_28_pb">A quick way to discuss details</h2>
-			<form action="#" method="post" name="discuss" id="discuss_form" class="discuss_form">
-				<label for="name">Name*</label>
-				<input type="text" required name="name" class="name" id="name" placeholder="Your name">
-				<label for="phone">Phone*</label>
-				<input type="tel" required name="phone" class="phone" id="phone" placeholder="Your phone">
-				<label for="email">Email*</label>
-				<input type="email" required name="email" class="email" id="email" placeholder="Your email">
-				<label for="message">Message*</label>
-				<textarea name="message" id="message" placeholder="Your message"></textarea>
+			<form action="{% url 'addDiscuss' %}" method="post" name="discuss" id="discuss_form" class="discuss_form">
+				{% csrf_token %}
+				<label for="{{DiscussForUserForm.userName.id_for_label}}">Name*</label>
+				{{DiscussForUserForm.userName}}
+				<label for="{{DiscussForUserForm.phoneNumberUser.id_for_label}}">Phone*</label>
+				{{DiscussForUserForm.phoneNumberUser}}
+				<label for="{{DiscussForUserForm.emailUser.id_for_label}}">Email*</label>
+				{{DiscussForUserForm.emailUser}}
+				<label for="{{DiscussForUserForm.discussContent.id_for_label}}">Message*</label>
+				{{DiscussForUserForm.discussContent}}
 				<div class="flex_checkbox_block">
-					<input type="checkbox" name="iAgree" id="iAgree">
-					<label for="iAgree" id="iAgree_label">I agree to receive communications from Createx Construction Bureau.</label>
+					{{DiscussForUserForm.userAgree}}
+					<label for="{{DiscussForUserForm.userAgree.id_for_label}}" id="iAgree_label">I agree to receive communications from Createx Construction Bureau.</label>
 				</div>
 				<div class="submit_btn">
 					<button type="submit" class="submit_discuss">send request</button>

@@ -1,2 +1,6 @@
 {% extends "base.html" %}
+{% load createx_tag %}
 {% load static %}
+{% block content %}
+{% get_main_slider %}
+{% endblock content %}
