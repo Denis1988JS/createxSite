@@ -1,6 +1,91 @@
 {% extends "base.html" %}
 {% load createx_tag %}
 {% load static %}
+
+
 {% block content %}
 {% get_main_slider %}
+<section class="video_section">
+	<h2 class="h2_center_46">
+		We are Createx Construction Bureau
+	</h2>
+	<p class="p_center_18_center">We are rightfully considered to be the best construction company in the USA.</p>
+	<div class="videoBlock">
+		<div class="videoBlock_back">
+			<img src="{% static 'img/home/overlay.png' %}" alt="Фон" class="videoBlock_back_img">
+		</div>
+		<div class="videoBlock_back_center">
+			<img src="{% static 'img/home/large.svg' %}" alt="Кнопка">
+		</div>
+		<div class="videoBlock_front">
+			<img src="{% static 'img/home/image.png' %}" alt="Видео" class="videoBlock_front_img">
+		</div>
+	</div>
+	{% getOurCoreValues %}
+	<div class="block_form_ask_question">
+		<div class="block_form">
+			<div class="block_form_ask_form">
+				<h2 class="h2_center_28_pb">Want to know more? Ask us a question:</h2>
+				<form action="{% url 'addAsk' %}" name="question" method="post" class="form_ask_question">
+					{% csrf_token %}
+					{% for ask in AskFromUserForm %}
+					<div class="blockAskInput">
+						<p><label for="{{ ask.id_for_label}}">{{ask.label}}</label></p>
+						{{ask}}
+					</div>
+					{% endfor %}
+					<div>
+						<button type="submit">send</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="our_services_block_links">
+	<div class="our_services_block_homepage">
+		<h2 class="h2_center_46">Our services</h2>
+		<p class="p_center_18_center">Createx Construction Bureau is a construction giant with a full range of construction services.</p>
+		<div class="services_list_homepage">
+			{% for servise in services %}
+			<a href="{{servise.get_absolute_url}}">
+			<div class="services_items_homepage_white">
+					<img src="{{servise.icon.url}}" alt="{{servise.title}}" class="servise_icon">
+					<h3 class="h3_20">{{servise.title}}</h3>
+				<div class="services_items_homepage_absolute">
+					<div class="bg_back">
+					</div>
+					<img src="{{servise.servicesImg.url}}" alt="servise.title" class="services_bg_hover">
+					<div class="services_items_content">
+						<img src="{{servise.icon_hover.url}}" alt="servise.title" class="services_icon_hover">
+						<p class="p_20_white p_absolute">{{servise.title}}</p>
+					</div>
+						
+				</div>
+			</div>
+			</a>
+			{% endfor %}
+		</div>
+		<div class="block_links_to_page">
+			<h3 class="h3_28">Learn more about our services</h3>
+			<a href="{% url 'services' %}">
+				<button class="link_btn">View services</button>
+			</a>
+		</div>
+	</div>
+</section>
+<section class="slider_links">
+	{% include 'include/slider_form.html' %}
+	<div class="block_links_to_page">
+		<h3 class="h3_28">Explore all our works</h3>
+		<a href="{% url 'work' %}">
+			<button class="link_btn">View portfolio</button>
+		</a>
+	</div>
+</section>
+<section class="testimonials_section">
+	{% include 'include/partners.html' %}
+	{% getOurClientsReviews %}
+</section>
+<script type="text/javascript" src="{% static 'js/slider_work_script.js' %}"></script>
 {% endblock content %}

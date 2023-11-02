@@ -15,7 +15,7 @@ def ValidateNumberPhone(size):
 class HeaderContent(models.Model):
     #Модель заголовка сайта
     title = models.CharField(max_length=100, verbose_name='Заголовок')
-    content = models.CharField(max_length=1000, verbose_name='Содержание')
+    content = models.TextField(max_length=1000, verbose_name='Содержание')
     img = models.ImageField(upload_to="header/%Y/%m/%d/", verbose_name='Фотография')
     def __str__(self):
         return f'{self.title}'

@@ -19,7 +19,7 @@ class MainSliderModelAdmin(admin.ModelAdmin):
     )
     def getimageSlider(self, object):
         if object.imageSlider:
-            return mark_safe(f"<img src='{object.imageSlider.url}' width=100>")
+            return mark_safe(f"<img src='{object.imageSlider.url}' width=250 height='auto'>")
     getimageSlider.short_description = 'Фото'
 admin.site.register(MainSliderModel,MainSliderModelAdmin)
 
@@ -29,9 +29,17 @@ class HeaderContentAdmin(admin.ModelAdmin):
     list_display = ('id','title','getImage')
     list_display_links =  ('id','title','getImage')
     readonly_fields = ("getImage",)
+    fieldsets = (
+        (None, {
+            "fields": (("title", "content"),)  # В одну строку
+        }),
+        (None, {
+            "fields": (("img", "getImage"),)  # В одну строку
+        }),
+    )
     def getImage(self, object):
         if object.img:
-            return mark_safe(f"<img src='{object.img.url}' width=100>")
+            return mark_safe(f"<img src='{object.img.url}' width=250 height='auto'>")
     getImage.short_description = 'Фото'
 admin.site.register(HeaderContent,HeaderContentAdmin)
 
@@ -81,6 +89,9 @@ class OurClientsReviewsAdmin(admin.ModelAdmin):
         }),
         (None, {
             "fields": (("getMainImg", "getIconClient"),)  # В встроку
+        }),
+        (None, {
+            "fields": (("iconClient", "mainImg"),)  # В встроку
         }),
     )
     def getMainImg(self, object):

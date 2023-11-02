@@ -23,6 +23,9 @@ from createxApp import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('createx.urls')),#Маршруты из приложения createx
+    path('services/', include('services.urls')),#Маршруты из приложения services
+    path('work/', include('work.urls')),#Маршруты из приложения work
+    path('aboutUs/', include('aboutUs.urls')),#Маршруты из приложения work
 ]
 
 #Добавление графических файлов

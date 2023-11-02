@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     #Приложения django
     'createx.apps.CreatexConfig',#Приложение createx
-
+    'services.apps.ServicesConfig',  # Приложение services
+    'work.apps.WorkConfig', # Приложение work
+    'aboutUs.apps.AboutusConfig', # Приложение aboutUs
     #Дополнительные приложения
     'bootstrap4',  # бутстрап 4
 ]

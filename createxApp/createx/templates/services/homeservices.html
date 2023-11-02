@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+{% block content %}
+{% include 'include/headerContent.html' %}
+	<section class="our_services_block">
+		{% for service in services %}
+		{%if forloop.counter|divisibleby:2 == False %}
+		<div class="services_item">
+			<div class="services_block_img">
+				<img src="{{service.servicesImg.url}}" alt="{{service.title}}" class="services_img">
+			</div>
+			<div class="services_content_block">
+				<h2 class="h2_32">{{service.title}}</h2>
+				<p class="p_16">{{service.content}}</p>
+				<a href="{% url 'services' service.slug %}"><button class="link_btn">learn more</button></a>
+			</div>
+		</div>
+		{% else %}
+		<div class="services_item_reverse">
+			<div class="services_block_img">
+				<img src="{{service.servicesImg.url}}" alt="{{service.title}}" class="services_img">
+			</div>
+			<div class="services_content_block">
+				<h2 class="h2_32">{{service.title}}</h2>
+				<p class="p_16">{{service.content}}</p>
+				<a href="{% url 'services' service.slug %}"><button class="link_btn">learn more</button></a>
+			</div>
+		</div>
+		{% endif %}
+		{% endfor %}
+	</section>
+
+{% endblock content %}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c4b14844-ee5e-4449-a857-579809ee7324" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/createxApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/createx/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/createx/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/createx/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/createx/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/static/css/min_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/createx/static/css/min_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/static/css/statick_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/createx/static/css/statick_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/createx/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/createx/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/templates/createx/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/createx/templates/createx/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/templates/include/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/createx/templates/include/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/templates/include/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/createx/templates/include/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/templatetags/createx_tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/createx/templatetags/createx_tag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/createx/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createx/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/createx/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createxApp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/createxApp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createxApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/createxApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2XQjHUhUdM5bCkBd9rZzP4JMXT1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Denis/Desktop/Академия ШАГ/Уроки для чтения и домашка от Академии/Домашки/django-учебные проекты/с сайта - проект библиотеки"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4b14844-ee5e-4449-a857-579809ee7324" name="Changes" comment="" />
+      <created>1698568112395</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698568112395</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

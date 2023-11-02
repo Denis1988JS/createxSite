@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+
+{% block content %}
+{% include 'include/headerContent.html' %}
+
+<section class="main_work_list">
+
+	<div class="work_list_links_block">
+
+		<div class="change_work_default take_work" data-value="All">
+			<div class="value_work" data-value="All">
+			</div>
+			<div class="change_work_item_default">
+				<img src="{% static 'img/work/ic-houseI.svg' %}" alt="Выбрать все">
+				<p>All project</p>
+			</div>
+		</div>
+
+		{% for service in services %}
+		<div class="change_work take_work"  data-value="{{service.id}}">
+			<div class="value_work" data-value="{{service.title}}">
+			</div>
+			<div class="change_work_item">
+				<img src="{{service.icon.url}}" alt="{{service.title}}">
+				<p>{{service.title}}</p>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+
+
+	<div class="work_list">
+		{% for work in works %}
+		<div class="data_item">
+			<div class="data_item_img_bg">
+				<img src="{{work.img.url}}" alt="{{work.title}}" class="data_item_img">
+			</div>
+			<h3 class="panel_h3_center_20">{{work.title}}</h3>
+			<p class="panel_p_center_16">{{work.objectID}}</p>
+			<div class="data_item_links">
+				<a href="{% url 'workDetail' work.slug %}">
+					<button class="link_btn">learn more</button>
+				</a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+<script type="text/javascript" src="{% static 'js/ajax_work_script.js' %}"></script>
+{% endblock content %}

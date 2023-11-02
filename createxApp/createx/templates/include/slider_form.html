@@ -1,0 +1,29 @@
+{% load static %}
+<section class="main_slider_form_block">
+	<div class="main_slider_form_header">
+		<h2 class="h2_46 slider_h2_header">{{slider_name}}</h2>
+		<div class="sliderBntRev">
+			<button class="leftSliderRev">&#8592</button>
+			<button class="rightSliderRev">&#8594</button>
+		</div>
+	</div>
+	<div class="slider_form_content_relative">
+		<div class="slider_form_content_absolute">
+			{% for slider in sliderForm %}
+				<div class="data_item">
+					<div class="data_item_img_bg">
+						<img src="{{slider.img.url}}" alt="{{work.title}}" class="data_item_img">
+					</div>
+					<h3 class="panel_h3_center_20">{{slider.title}}</h3>
+					<p class="panel_p_center_16">{{slider.objectID}}</p>
+					<div class="data_item_links">
+						<a href="{% url 'workDetail' slider.slug %}">
+							<button class="link_btn">learn more</button>
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>	
+<script type="text/javascript" src="{% static 'js/slider_form.js' %}"></script>

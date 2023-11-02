@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+{% block content %}
+{% include 'include/headerContent.html' %}
+<section class="offer_section_block">
+	<div class="offer_block_img">
+		<img src="{{service.servicesOfferImg.url}}" alt="{{service.title}}">
+	</div>
+	<div class="offer_block_content">
+		<h2 class="h2_46">We offer</h2>
+		<div class="offer_block">
+			{% for offer in service.ourofferservices_set.all %}
+				<div class="offer_content">
+					<h3 class="h3_28 open_offer">{{offer.titleOffer}}</h3>
+					<p class="p_16 close_p_offer">{{offer.contentOffer}}</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<section class="steps_section_block">
+	<div class="steps_block">
+		<h2 class="h2_46">That’s how we do it</h2>
+		<div class="steps_list">
+			<div class="steps_item">
+				<div class="steps_item_number_block">
+					<div class="circle_1"></div>
+					<div class="circle_2"></div>
+					<p class="steps_item_number">
+						01
+					</p>
+				</div>
+				<p class="h3_20">Work Estimate</p>
+				<p class="p_16_pd_0">Culpa nostrud commodo ea consequat aliquip reprehenderit.</p>
+			</div>
+			<div class="steps_item">
+				<div class="steps_item_number_block">
+					<div class="circle_1"></div>
+					<div class="circle_2"></div>
+					<p class="steps_item_number">
+						02
+					</p>
+				</div>
+				<p class="h3_20">Contract</p>
+				<p class="p_16_pd_0">Laoreet ultrices curabitur luctus quisque consequat. Leo lorem velit imperdiet auctor et tempor.</p>
+			</div>
+			<div class="steps_item">
+				<div class="steps_item_number_block">
+					<div class="circle_1"></div>
+					<div class="circle_2"></div>
+					<p class="steps_item_number">
+						03
+					</p>
+				</div>
+				<p class="h3_20">Mobilization</p>
+				<p class="p_16_pd_0">Odio massa scelerisque purus arcu sed velit eleifend cursus leo.</p>
+			</div>
+			<div class="steps_item">
+				<div class="steps_item_number_block">
+					<div class="circle_1"></div>
+					<div class="circle_2"></div>
+					<p class="steps_item_number">
+						04
+					</p>
+				</div>
+				<p class="h3_20">Construction Work</p>
+				<p class="p_16_pd_0">Adipisicing esse aliqua aliquip qui amet. Aute eiusmod dolore dolore et ad et veniam ad deserunt.</p>
+			</div>
+		</div>
+	</div>
+	{% getOurBenefits %}
+</section>
+<section class="slider_links">
+	{% include 'include/slider_form.html' %}
+	<div class="block_links_to_page">
+		<h3 class="h3_28">Explore all our works</h3>
+		<a href="{% url 'work' %}">
+			<button class="link_btn">View portfolio</button>
+		</a>
+	</div>
+</section>
+<section class="pricing">
+	{% include 'include/partners.html' %}
+</section>
+<script type="text/javascript" src="{% static 'js/script_detail.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/slider_work_script.js' %}"></script>
+
+{% endblock content %}

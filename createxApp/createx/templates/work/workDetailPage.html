@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+{% block content %}
+<section class="work_slider_main_block">
+	<div class="work_slider_block">
+		<h2 class="h2_46">{{work.title}}</h2>
+		<div class="big_photo_slider_block">
+			<div class="sliderBtn">
+				<button class="sliderBtnLeft">
+					&#10144;
+				</button>
+				<button class="sliderBtnRight">
+					&#10144;
+				</button>
+			</div>
+			<img src="{{first_slide.imgWork.url}}" alt="{{work.title}}" class="slider_big_photo">
+		</div>
+		<div class="photo_slider_list">
+			{% for slide in work.photosliderwork_set.all %}
+				<img src="{{slide.imgWork.url}}" alt="{{slide.title}}" class="slider_item">
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<section class="about_project_main_block">
+	<div class="about_project_content">
+		{% for data in work.ourworkdata_set.all %}
+		<div class="project_title">
+			<h2 class="h2_46">Project goal</h2>
+			<p class="p_18">{{data.content}}</p>
+		</div>
+		<div class="project_content">
+			<div class="project_content_value">
+				<p class="p_16_pd_0_bold">LOCATION </p>
+				<p class="p_16_grey">{{data.location}}</p>
+			</div>
+			<div class="project_content_value">
+				<p class="p_16_pd_0_bold">CLIENT</p>
+				<p class="p_16_grey">{{data.client}}</p>
+			</div>
+			<div class="project_content_value">
+				<p class="p_16_pd_0_bold">ARCHITECT</p>
+				<p class="p_16_grey">{{data.architech}}</p>
+			</div>
+			<div class="project_content_value">
+				<p class="p_16_pd_0_bold">SIZE</p>
+				<p class="p_16_grey">{{data.size}} sq.feet</p>
+			</div>
+			<div class="project_content_value">
+				<p class="p_16_pd_0_bold">VALUE</p>
+				<p class="p_16_grey">{{data.price}} $</p>
+			</div>
+			<div class="project_content_value">
+				<p class="p_16_pd_0_bold">COMPLETED</p>
+				<p class="p_16_grey">{{data.completed | date:"M Y"}} </p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+<section class="constructive_decisions_block">
+	<div class="constructive_decisions">
+		<div class="constructive_ecisions_block_img">
+			<img src="{% static 'img/work/image.jpg' %}" alt="Фото">
+		</div>
+		<div class="constructive_decisions_content">
+			<h2 class="h2_46">Constructive decisions</h2>
+			<ul class="constructive_decisions_list">
+				<li class="constructive_decisions_item">Vitae ultrices ornare eu sed in est quisque duis id.</li>
+				<li class="constructive_decisions_item">A fermentum in morbi pretium aliquam adipiscing donec tempus.</li>
+				<li class="constructive_decisions_item">Mauris odio pellentesque commodo, diam.</li>
+				<li class="constructive_decisions_item">Fermentum vestibulum est fermentum, egestas gravida scelerisque quis.</li>
+				<li class="constructive_decisions_item">At pharetra libero blandit risus, fringilla sed commodo diam.</li>
+				<li class="constructive_decisions_item">Integer ultricies viverra ut enim viverra ut.</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section class="slider_links">
+	{% include 'include/slider_form.html' %}
+			<div class="block_links_to_page">
+				<h3 class="h3_28">Explore all our works</h3>
+				<a href="{% url 'work' %}">
+					<button class="link_btn">View portfolio</button>
+				</a>
+			</div>
+</section>
+
+
+<script type="text/javascript" src="{% static 'js/slider_work_script.js' %}"></script>
+{% endblock content %}

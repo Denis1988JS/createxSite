@@ -1,0 +1,17 @@
+<div class="_main_block_benefits">
+	<div class="block_benefits">
+		<h2 class="h2_46_white_center">
+			Our benefits
+		</h2>
+		<p class="p_18_white_center">Our mission is to set the highest standards for construction sphere.</p>
+		<div class="block_benefits_list">
+			{% for benefit in benefits %}
+			<div class="block_benefits_items">
+				<img src="{{benefit.icon.url}}" alt="{{benefit.title}}">
+				<p class="p_20_white pd_24_8">{{benefit.title}}</p>
+				<p class="p_16_white">{{benefit.content}}</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

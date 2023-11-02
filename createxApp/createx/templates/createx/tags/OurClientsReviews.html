@@ -1,0 +1,44 @@
+<div class="slider_block">
+	<div class="slider_block_absolute">
+		{% for slide in sliders %}
+		<div class="slide_block_content">
+			<div class="slide_block_content_left">
+				<h3 class="h2_46">What our clients are saying</h3>
+				<div class="iconClient"><img src="{{slide.iconClient.url}}" alt="{{slide.nameClient}}" ></div>
+				<p class="p_18">{{slide.contentReview}}</p>
+				<p class="p_16">{{slide.nameClient}}</p>
+				<div class="reviewsFooter">
+					<p>{{slide.adressCompeny}} {{slide.nameCompany}}</p>
+					<div class="sliderBntRev">
+						<button class="leftSliderRev">&#8592</button>
+						<button class="rightSliderRev">&#8594</button>
+					</div>
+				</div>
+			</div>
+			<div class="slide_block_content_right">
+				<img src="{{slide.mainImg.url}}" alt="{{slide.nameClient}}" class="slide_block_content_right_img">
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+<script>
+//Слайдер отзывов
+let scrollData = 0;
+let slider_block_absolute = document.querySelector('.slider_block_absolute');
+let sliderBntRev = document.querySelectorAll('.sliderBntRev');
+let sliderLength = -1*(1230 * (slider_block_absolute.children.length-1));
+for (let i = 0; i < sliderBntRev.length; i++){
+	sliderBntRev[i].addEventListener('click', function(event){
+		let target = event.target;
+		if(target.classList == "leftSliderRev" && scrollData < 0){
+			scrollData += 1230
+			slider_block_absolute.style.left = scrollData + 'px'
+		}
+		else if (target.classList == "rightSliderRev" && scrollData > sliderLength) {
+			scrollData -= 1230;
+			slider_block_absolute.style.left = scrollData + 'px'
+		}
+	})
+}
+</script>

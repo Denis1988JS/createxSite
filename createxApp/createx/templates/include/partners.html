@@ -1,0 +1,11 @@
+{% load static %}
+<div class="main_block_partners">
+	<h2 class="h2_center_46">Supported by 12+ partners</h2>
+	<div class="partners_block">
+		{% for partner in partners%}
+		<div class="partners_panel">
+			<img src="{{partner.logo.url}}" alt="{{partner.namePartners}}">
+		</div>
+		{% endfor %}
+	</div>
+</div>

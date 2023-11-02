@@ -18,9 +18,9 @@ class AskFromUserForm(forms.ModelForm):
         fields = ['userName','phoneNumberUser','askContent']
         labels = {'userName': 'Name','phoneNumberUser':'Phone','askContent':'Message'}
         widgets = {
-            'userName': forms.TextInput(attrs={'placeholder': 'Your name','class':'askInput'}),
-            'phoneNumberUser': forms.TextInput(attrs={'placeholder': 'Your phone', 'class': 'askInput','type':'tel'}),
-            'askContent': forms.TextInput(attrs={'placeholder': 'Your message', 'class': 'askInput'}),
+            'userName': forms.TextInput(attrs={'placeholder': 'Your name','class':'askInput w260'}),
+            'phoneNumberUser': forms.TextInput(attrs={'placeholder': 'Your phone', 'class': 'askInput w260','type':'tel'}),
+            'askContent': forms.TextInput(attrs={'placeholder': 'Your message', 'class': 'askInput w414'}),
         }
 
 #Форма обсуждение от пользователя - DiscussForUser

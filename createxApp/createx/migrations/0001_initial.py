@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100, verbose_name='Заголовок')),
-                ('content', models.CharField(max_length=1000, verbose_name='Содержание')),
+                ('content', models.TextField(max_length=1000, verbose_name='Содержание')),
                 ('img', models.ImageField(upload_to='header/%Y/%m/%d/', verbose_name='Фотография')),
             ],
         ),

@@ -20,10 +20,14 @@
 <body>
 	<div class="wrapper">
 		{% include 'include/header.html' %}
+		<main class="main">
 		{% block content %}
 		{% endblock content %}
+		</main>
 		{% include 'include/discussFormBlock.html' %}
 		{% include 'include/footer.html' %}
 	</div>
+	<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/script1.js' %}"></script>
 </body>
 </html>

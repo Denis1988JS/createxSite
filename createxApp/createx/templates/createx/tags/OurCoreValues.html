@@ -1,0 +1,15 @@
+<div class="block_content">
+	<h2 class="h2_center_46 ">Our core values</h2>
+	<p class="p_center_18_center">Our mission is to set the highest standards for construction sphere.</p>
+	<div class="flex_container_block">
+		{% for v in ocv %}
+		<div class="panel_block">
+			<div class="center_block_img_panel">
+				<img src="{{v.coreIcon.url}}" alt="{{v.titleCore}}" class="panel_img_center">
+			</div>
+			<h3 class="panel_h3_center_20">{{v.titleCore}}</h3>
+			<p class="panel_p_center_16">{{v.contentCore}}</p>
+		</div>
+		{% endfor %}
+	</div>
+</div>
