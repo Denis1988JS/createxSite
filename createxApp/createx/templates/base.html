@@ -18,7 +18,23 @@
 	<title>{{title}}</title>
 </head>
 <body>
+	<div class="subscribe_form_absolute">
+		<div class="subscribe_form_sticky">
+			{% include 'include/SuscribeUserSVModelForm.html' %}
+			<div class="subscribe_form_opacity"></div>
+		</div>
+	</div>
+
+	<div class="userSend_form_absolute">
+		<div class="userSend_form_sticky">
+			{% include 'include/UserSendCVModelForm.html' %}
+			<div class="userSend_form_opacity"></div>
+		</div>
+	</div>
+
 	<div class="wrapper">
+
+		
 		{% include 'include/header.html' %}
 		<main class="main">
 		{% block content %}
@@ -29,5 +45,7 @@
 	</div>
 	<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/script1.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/hogan.js' %}"></script>
+
 </body>
 </html>

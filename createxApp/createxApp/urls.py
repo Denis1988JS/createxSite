@@ -22,10 +22,13 @@ from createxApp import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),#Приложение ckeditor
     path('', include('createx.urls')),#Маршруты из приложения createx
+
     path('services/', include('services.urls')),#Маршруты из приложения services
     path('work/', include('work.urls')),#Маршруты из приложения work
     path('aboutUs/', include('aboutUs.urls')),#Маршруты из приложения work
+    path('news/', include('news.urls')),#Маршруты из приложения news
 ]
 
 #Добавление графических файлов

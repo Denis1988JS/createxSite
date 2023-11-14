@@ -47,8 +47,8 @@
 			<div class="center_block_center">
 				<p class="footer_p_uppercase">WHO WE ARE</p>
 				<ul class="footer_link_list">
-					<li class="footer_link_item"><a href="#" class="footer_link">About Us</a></li>
-					<li class="footer_link_item"><a href="#" class="footer_link">Available Positions</a></li>
+					<li class="footer_link_item"><a href="{% url 'aboutUs' %}" class="footer_link">About Us</a></li>
+					<li class="footer_link_item"><a href="{% url 'avaliablePositions' %}" class="footer_link">Available Positions</a></li>
 					<li class="footer_link_item"><a href="#" class="footer_link">Contacts</a></li>
 				</ul>
 			</div>
@@ -57,7 +57,7 @@
 				<ul class="footer_link_list">
 					<li class="footer_link_item"><a href="{% url 'services' %}" class="footer_link">Services</a></li>
 					<li class="footer_link_item"><a href="{% url 'work' %}" class="footer_link">Work</a></li>
-					<li class="footer_link_item"><a href="#" class="footer_link">News</a></li>
+					<li class="footer_link_item"><a href="{% url 'news' %}" class="footer_link">News</a></li>
 				</ul>
 			</div>
 		</div>

@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from aboutUs.models import StatisticModel, OurEmployee, EmployeeBenefits, OurOfficesModel, AvaliablePositionsModel
+from aboutUs.models import StatisticModel, OurEmployee, EmployeeBenefits, OurOfficesModel, AvaliablePositionsModel, SuscribeUserSVModel, \
+    UserSendCVModel, OurSocLinks, OurEmployeeMessage, OurHistory, OurHistorySlider
 
 
 # Register your models here.
@@ -26,11 +27,21 @@ class StatisticModelAdmin(admin.ModelAdmin):
 admin.site.register(StatisticModel,StatisticModelAdmin)
 
 #Админка наши сотрудники - OurEmployee
+class OurEmployeeMessageInline(admin.TabularInline):
+    model = OurEmployeeMessage
+    classes = ('collapse',)
+    readonly_fields = ('getSignature',)
+    extra = 1
+    def getSignature(self, object):
+        if object.signature:
+            return mark_safe(f"<img src='{object.signature.url}' width=100>")
+    getSignature.short_description = 'Подпись'
 class OurEmployeeAdmin(admin.ModelAdmin):
     list_display = ('id', 'getFullName', 'jobTitle', 'getimgUrl','isWork',)
     list_display_links = ('id', 'getFullName',)
     list_editable = ('isWork',)
     readonly_fields = ("getimgUrl",)
+    inlines = [OurEmployeeMessageInline]
     ordering = ['pk']
     fieldsets = (
         (None, {
@@ -39,6 +50,7 @@ class OurEmployeeAdmin(admin.ModelAdmin):
         (None, {
             "fields": (("imgUrl", "getimgUrl"),)  # В одну строку
         }),
+
     )
     def getimgUrl(self, object):
         if object.imgUrl:
@@ -49,6 +61,19 @@ class OurEmployeeAdmin(admin.ModelAdmin):
         return  fullName
     getFullName.short_description = 'ФИО'
 admin.site.register(OurEmployee, OurEmployeeAdmin)
+
+#Админка - OurEmployeeMessage - послание от сотрудника
+class OurEmployeeMessageAdmin(admin.ModelAdmin):
+    list_display = ('id','title','employee','isDisplay','time_create','getSignature')
+    list_display_links = ('id','title',)
+    list_editable = ('isDisplay',)
+    list_filter = ('employee',)
+    readonly_fields = ('getSignature',)
+    def getSignature(self, object):
+        if object.signature:
+            return mark_safe(f"<img src='{object.signature.url}' width=100>")
+    getSignature.short_description = 'Подпись'
+admin.site.register(OurEmployeeMessage, OurEmployeeMessageAdmin)
 
 #Админка - EmployeeBenefits - преимищество сотрудников (Выплаты сотрудникам)
 class EmployeeBenefitsAdmin(admin.ModelAdmin):
@@ -111,3 +136,71 @@ class AvaliablePositionsModelAdmin(admin.ModelAdmin):
         }),
     )
 admin.site.register(AvaliablePositionsModel, AvaliablePositionsModelAdmin)
+
+
+#Админка - подписчики на вакансии
+class SuscribeUserSVModelAdmin(admin.ModelAdmin):
+    list_display = ('id','userName','userEmail','dateToSubscribe','isSubscribe')
+    list_display_links = ('id', 'userName',)
+    list_editable = ('isSubscribe',)
+    readonly_fields = ('dateToSubscribe',)
+    search_fields = ('userName', 'userEmail',)
+    search_help_text = 'Поиск по подписчикам'
+admin.site.register(SuscribeUserSVModel, SuscribeUserSVModelAdmin)
+
+#Админка - соискатели на вакансию
+class UserSendCVModelAdmin(admin.ModelAdmin):
+    list_display = ('id','userName','userLocation','userTell','userEmail','dateSend')
+    list_display_links = ('id', 'userName',)
+    readonly_fields = ('userMessage','userTell','userEmail','dateSend',)
+    search_fields = ('userName', 'userEmail',)
+    search_help_text = 'Поиск по соискателям'
+    list_filter = ('dateSend',)
+
+
+admin.site.register(UserSendCVModel, UserSendCVModelAdmin)
+
+#Админка - ссылки на соцсети
+class OurSocLinksAdmin(admin.ModelAdmin):
+    list_display = ('id','name','nameLink','getAllimg')
+    list_display_links = ('id', 'name', 'nameLink')
+    readonly_fields = ('getAllimg',)
+    def getAllimg(self, object):
+        return mark_safe(
+            f"<img src='{object.imgLink_1.url}' width=75> <img src='{object.imgLink_2.url}' width=75><img src='{object.imgLink_2_hover.url}' width=75>")
+    getAllimg.short_description = 'Фото'
+admin.site.register(OurSocLinks, OurSocLinksAdmin)
+
+#Админка - слайдер истории -OurHistory
+class OurHistorySliderAdminInline(admin.TabularInline):
+    model = OurHistorySlider
+    classes = ('collapse',)
+    readonly_fields = ('gethistorySliderPhoto',)
+    extra = 1
+    def gethistorySliderPhoto(self, object):
+        if object.historySliderPhoto:
+            return mark_safe(f"<img src='{object.historySliderPhoto.url}' width=150>")
+    gethistorySliderPhoto.short_description = 'Фото'
+class OurHistoryAdmin(admin.ModelAdmin):
+    list_display = ('id','dateHistory','isPublished')
+    list_display_links = ('id','dateHistory',)
+    list_editable = ('isPublished',)
+    inlines = (OurHistorySliderAdminInline,)
+    ordering = ['-dateHistory']
+admin.site.register(OurHistory, OurHistoryAdmin)
+
+#Админка - фотографии для слайдера - OurHistorySlider
+class OurHistorySliderAdmin(admin.ModelAdmin):
+    list_display = ('id','title','history','publishedSlider','gethistorySliderPhoto')
+    list_display_links = ('id','title')
+    list_editable = ('publishedSlider',)
+    ordering = ['history']
+    list_filter = ('history', 'publishedSlider')
+    readonly_fields = ('gethistorySliderPhoto',)
+    def gethistorySliderPhoto(self, object):
+        if object.historySliderPhoto:
+            return mark_safe(f"<img src='{object.historySliderPhoto.url}' width=150>")
+    gethistorySliderPhoto.short_description = 'Фото'
+admin.site.register(OurHistorySlider, OurHistorySliderAdmin)
+
+

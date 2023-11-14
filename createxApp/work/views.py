@@ -24,21 +24,20 @@ class WorkPage(FormsMixin,ListView):
     context_object_name = 'work'
     queryset = OurWork.objects.all()
     def post(self, request):
-        body_unicode =json.loads (request.body.decode('utf-8'))
-        #print(body_unicode['workServicesID'], type(body_unicode))
-        if request.method == 'POST':
-            if body_unicode['workServicesID'] != 'All':
+        rb = eval(request.body.decode())
+        if request.method == 'POST' and rb['workServicesID'] != 'All':
                 data = json.loads(request.body)
                 newWorks = OurWork.objects.filter(workServicesID__title=data['workServicesID']).values('id','title','slug','objectID', 'img','workServicesID')[0:6]
                 takeObjects(newWorks)
                 newWorks = list(newWorks)
                 newWorks = json.dumps(newWorks)
-            elif body_unicode['workServicesID'] == 'All':
+                return JsonResponse(newWorks, safe=False)
+        elif  request.method == 'POST' and rb['workServicesID'] == 'All':
                 newWorks = OurWork.objects.all().values('id','title','slug','objectID', 'img','workServicesID')[0:6]
                 takeObjects(newWorks)
                 newWorks = list(newWorks)
                 newWorks = json.dumps(newWorks)
-            return JsonResponse(newWorks, safe=False)
+                return JsonResponse(newWorks, safe=False)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context()
@@ -49,7 +48,7 @@ class WorkPage(FormsMixin,ListView):
         context = dict(list(context.items()) + list(c_def.items()))
         return context
 
-
+#Детально - про выполненную работу
 class WorkDetail(FormsMixin,DetailView):
     model = OurWork
     template_name = 'work/workDetailPage.html'

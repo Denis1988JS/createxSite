@@ -4,14 +4,17 @@
 * {
 	font-family: 'Ubuntu', sans-serif;
 }
+body {
+	height: auto;
+	position: relative;
+}
 .wrapper {
 	width: 100%;
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
+	height: auto;
 	overflow: hidden;
 	font-family: 'Ubuntu', sans-serif;
 	margin: 0px auto;
+	position: relative;
 }
 /*Стилизация - навигация сайта - nav_block*/
 .nav_block {
@@ -384,6 +387,7 @@
 	width: 100%;
 	height: auto;
 	background: var(--white, #FFF);
+	
 }
 /*Блок с видео*/
 .video_section {
@@ -599,9 +603,10 @@
 	align-items: center;
 	flex-wrap: wrap;
 	margin-top: 20px;
+	grid-gap: 50px;
 }
 .partners_panel {
-	width: fit-content;
+	width: 156px;
 }
 /*Блок - слайдер отзывы клиентов - main_block_slider*/
 .slider_block {
@@ -980,6 +985,9 @@
 	justify-content: center;
 	position: relative;
 }
+.active_change_work {
+	border-bottom: 10px solid #FF5A30;
+}
 .change_work_item {
 	text-align: center;
 }
@@ -1197,3 +1205,768 @@
 	height: auto;
 	padding: 100px 0px;
 }
+
+/*----------Страница AboutUs-------*/
+/*-----intro_content -------статистика и обращение от сотрудников----*/
+.intro_content {
+	width: 100%;
+	height: auto;
+	padding: 100px 0px;
+}
+.statistic_content  {
+	max-width: 1230px;
+	height: auto;
+	margin: 0px auto;
+	display: flex;
+	row-gap: 50px;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.statistic {
+	width: 260px;
+	height: auto;
+	text-align: center;
+}
+
+.message_employee_block {
+	width: 100%;
+	height: auto;
+	padding-bottom: 200px;
+}
+.employee_block_list {
+	padding-top: 100px;
+	max-width: 1230px;
+	margin: 0px auto;
+}
+.employee_block_item {
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	padding-bottom: 50px;
+}
+.employee_block_img {
+	min-width: 525px;
+	height: auto;
+	position: absolute;
+	top:40px;
+	left:0;
+	z-index: 1;
+}
+.employee_block_img img{
+	width: 100%;
+}
+.employee_block_content {
+	padding: 0px 80px 80px;
+	flex-basis: 60%;
+	border-radius: 4px;
+	background: var(--white, #FFF);
+	box-shadow: 0px 4px 4px -4px rgba(30, 33, 44, 0.03), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 80px 80px -20px rgba(154, 156, 165, 0.08);
+	z-index: 2;
+}
+.employee_info_block {
+	width: 100%;
+	height: auto;
+	padding-top: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+
+/*Слайдер истории*/
+.our_history_slider_main_block {
+	width: 100%;
+	height: auto;
+	background: #F4F5F6;
+	padding: 80px 0px;
+}
+.history_slider_main_block {
+	max-width: 1230px;
+	margin: 0px auto;
+}
+.slider_history_block {
+	max-width: 1230px;
+	height: auto;
+	padding-top: 100px;
+}
+.history_slider {
+	width: 100%;
+	min-height: 535px;
+	display: flex;
+	justify-content: space-between;
+	
+}
+.history_list {
+	height: 100%;
+	flex-basis: 30%;
+}
+
+
+.history_list_item{
+	color: var(--gray-600, #9A9CA5);
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 150%;
+	padding-bottom: 20px;
+	margin-left: 25px;
+	position: relative;
+}
+.history_list_item::before {
+	content: '';
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	display: inline-block;
+	background-color: #9A9CA5;
+	left: -25px;
+	top: 0;
+}
+.history_list_item:hover {
+	color: #FF5A30;
+}
+.history_list_item:hover:before {
+	background-color: #FF5A30;
+}
+.history_list_item:hover .circleSvg {
+	fill: #FF5A30;
+}
+.active {
+	color: #FF5A30;
+}
+.active:before {
+	background-color: #FF5A30;
+}
+.active .circleSvg{
+	fill: #FF5A30;
+}
+.active_svg {
+	fill: #9A9CA5;
+}
+
+
+
+.list_circle {
+	position: absolute;
+	fill: var(--gray-600, #9A9CA5);
+	stroke-width: 4px;
+	stroke: var(--gray-200, #F4F5F6);
+	z-index: 2;
+	top: 2;
+	left: -32px;
+}
+.history_content {
+	width: auto;
+}
+.history_content_img_relative {
+	position: relative;
+	flex-basis: 66%;
+	height: auto;
+	overflow: hidden;
+}
+.history_content_img_abdolute_flex {
+	display: flex;
+	justify-content: flex-start;
+	width: auto;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: 0.5s ease-in;
+}
+.history_img_container {
+	width: 810px;
+	height: auto;
+	display: block;
+	margin-right: 5px;
+}
+.history_img {
+	width: 100%;
+	max-height: 450px;
+	object-fit: cover;
+	margin-bottom: 35px;
+}
+
+/*----блок наша команда - our_team_main_block --*/
+
+.our_team_main_block {
+	width: 100%;
+	height: auto;
+	padding: 100px 0px;
+}
+.our_team_block {
+	max-width: 1230px;
+	height: auto;
+	padding-top: 100px;
+	margin: 0px auto;
+}
+.team_block {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 40px 20px;
+	padding-bottom: 50px;
+}
+.team {
+	width: 285px;
+	height: auto;
+	text-align: center;
+	border-radius: 4px;
+	background: var(--white, #FFF);
+
+	/* shadow/regular */
+	box-shadow: 0px 4px 4px -4px rgba(30, 33, 44, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.10), 0px 80px 80px -20px rgba(154, 156, 165, 0.16);
+}
+.team_img {
+	width: 100%;
+	height: 340px;
+	object-fit: cover;
+	transition: 0.2s ease-in;
+	margin-bottom: 15px;
+}
+.team:hover .team_img {
+	width: 90%;
+	height: 300px;
+}
+
+/*-------Страница AvaliablePositions ------вакансии-----*/
+
+.main_avaliable_block {
+	width: 100%;
+	height: auto;
+	padding: 100px 0px;
+	position: relative;
+}
+.avaliable_positions_block {
+	max-width: 1230px;
+	height: auto;
+	margin: 0px auto;
+	display: flex;
+	justify-content: flex-start;
+	gap: 145px;
+}
+.avaliable_positions {
+	flex-basis: 705px;
+}
+.avaliable_content {
+	width: 100%;
+	padding: 30px 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 4px;
+	border: 1px solid var(--gray-300, #E5E8ED);
+	background: var(--white, #FFF);
+	margin-bottom: 25px;
+}
+.avaliable_content:hover {
+	background: rgba(244, 245, 246, 1);
+}
+.apInfoP {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5px;
+	margin-bottom: 8px;
+}
+.number_form_block {
+	flex-basis: 380px;
+	border-radius: 4px;
+	box-shadow: 0px 4px 4px -4px rgba(30, 33, 44, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.10), 0px 80px 80px -20px rgba(154, 156, 165, 0.16);
+	align-self: flex-start;
+	padding: 0px 20px 20px;
+}
+.block_btn_links {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+/*Модальные окна для форм - форма subscribe на вакансии*/
+.subscribe_form_absolute {
+	visibility: hidden;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 19;
+	left: 0;
+	top: 0;
+}
+.subscribe_form_sticky {
+	position: sticky;
+	width: 100%;
+	height: 100vh;
+	z-index: 20;
+	overflow: auto;
+	left: 0;
+	top: 0;
+}
+.subscribe_form_opacity {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 20;
+	overflow: auto;
+	opacity: 0.75;
+	background: var(--gray-900, #1E212C);
+	left: 0;
+	top: 0;
+}
+.SuscribeUserSVModelForm_block {
+	width: 486px;
+	height: fit-content;
+	border-radius: 4px;
+	border: 1px solid var(--gray-300, #E5E8ED);
+	background: var(--white, #FFF);
+	opacity: 1;
+	z-index: 21;
+	box-shadow: 0px 4px 4px -4px rgba(30, 33, 44, 0.05), 0px 12px 10px -6px rgba(30, 33, 44, 0.08), 0px 26px 24px -10px rgba(30, 33, 44, 0.10), 0px 60px 80px -20px rgba(30, 33, 44, 0.16);
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	padding: 50px;
+}
+.SuscribeUserSVModelForm_block label {
+	padding-bottom: 8px;
+	color: var(--gray-800, #424551);
+	font-size: 14px;
+	font-weight: 400;
+}
+.SuscribeUserSVModelForm_block input {
+	width: 100%;
+	padding: 11px 16px;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	margin-bottom: 20px;
+}
+.submit_SuscribeUserSVModelForm {
+	width: 100%;
+	border-radius: 4px;
+	background:#FF5A30;
+	padding: 0px 32px;
+	color: #FFF;
+	text-align: center;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 44px; /* 314.286% */
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+.close_SV_form {
+	background-color: inherit;
+	position: absolute;
+	top: 24px;
+	right: 24px;
+}
+
+/*Модальные окна для форм - форма UserSendCVModel на вакансии*/
+.userSend_form_absolute {
+	visibility: hidden;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 19;
+	left: 0;
+	top: 0;
+}
+.userSend_form_sticky {
+	position: sticky;
+	width: 100%;
+	height: 100vh;
+	z-index: 20;
+	overflow: auto;
+	left: 0;
+	top: 0;
+}
+.userSend_form_opacity {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 20;
+	overflow: auto;
+	opacity: 0.75;
+	background: var(--gray-900, #1E212C);
+	left: 0;
+	top: 0;
+}
+.UserSendCVModel_block {
+	width: 486px;
+	height: fit-content;
+	border-radius: 4px;
+	border: 1px solid var(--gray-300, #E5E8ED);
+	background: var(--white, #FFF);
+	opacity: 1;
+	z-index: 21;
+	box-shadow: 0px 4px 4px -4px rgba(30, 33, 44, 0.05), 0px 12px 10px -6px rgba(30, 33, 44, 0.08), 0px 26px 24px -10px rgba(30, 33, 44, 0.10), 0px 60px 80px -20px rgba(30, 33, 44, 0.16);
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	padding: 50px;
+}
+.close_UserSendCVModel {
+	background-color: inherit;
+	position: absolute;
+	top: 24px;
+	right: 24px;
+}
+.UserSendCVModel_block label {
+	padding-bottom: 8px;
+	color: var(--gray-800, #424551);
+	font-size: 14px;
+	font-weight: 400;
+}
+.UserSendCVModel_block input {
+	width: 100%;
+	padding: 11px 16px;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	margin-bottom: 20px;
+}
+.UserSendCVModel_block select {
+	width: 100%;
+	padding: 11px 16px;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	margin-bottom: 20px;
+}
+.UserSendCVModel_block textarea {
+	width: 100%;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	height: 86px;
+	padding: 11px 16px;
+	resize: none;
+	margin-bottom: 20px;
+}
+.submit_SuscribeUserSVModelForm {
+	width: 100%;
+	border-radius: 4px;
+	background:#FF5A30;
+	padding: 0px 32px;
+	color: #FFF;
+	text-align: center;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 44px; /* 314.286% */
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+.employee_benefits {
+	width: 100%;
+	height: auto;
+	padding: 0px 0px 100px 0px;
+}
+
+/*-----Верстка страница Новости ----- News----*/
+.news_main_block {
+	width: 100%;
+	height: auto;
+	padding: 100px 0px;
+}
+.news_block {
+	max-width: 1230px;
+	height: auto;
+	margin: 0px auto;
+}
+.category_block {
+	width: 100%;
+	height: auto;
+}
+.category_list {
+	width:  100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 40px;
+}
+.category_news_item {
+	padding: 10px 45px;
+	color:  #9A9CA5;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 160%; /* 25.6px */
+	background-color: inherit;
+}
+.category_news_item:hover {
+	border-radius: 4px;
+	border: 1px solid #FF5A30;
+	color: #FF5A30;
+	padding: 9px 44px;
+
+}
+.category_news_item_active {
+	border-radius: 4px;
+	border: 1px solid #FF5A30;
+	color: #FF5A30;
+	text-align: center;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 160%; /* 25.6px */
+	padding: 9px 44px;
+	background-color: inherit;
+}
+.news_block_list {
+	max-width: 1230px;
+	margin: 0px auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+}
+.news_item {
+	margin-top: 20px;
+	max-width: 600px;
+	height: 482px;
+	border-radius: 4px;
+	background: var(--white, #FFF);
+	box-shadow: 0px 4px 4px -4px rgba(30, 33, 44, 0.03), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 80px 80px -20px rgba(154, 156, 165, 0.08);
+	transition: all 0.3s;
+	overflow: hidden;
+}
+.news_item:hover {
+	background: #d8dbe7;
+}
+.news_item_img {
+	width: 100%;
+	height: 306px;
+	object-fit: cover;
+}
+.news_info_block {
+	width: 100%;
+	height: 160px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	overflow: hidden;
+}
+.paginator_block {
+	max-width: 1230px;
+	margin: 50px auto 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+.a_panination {
+	color: #424551;
+	font-family: Ubuntu;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 160%; /* 25.6px */
+}
+.a_panination_active {
+	color: #FF5A30;
+	font-family: Ubuntu;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 160%; /* 25.6px */
+}
+
+/*news_main_block - страница детально новости !!!!*/
+
+.new_main_block {
+	margin-top: 70px;
+	width: 100%;
+	height: auto;
+}
+.news_block_detail {
+	max-width: 1230px;
+	height: auto;
+	margin: 0px auto;
+	padding: 100px 0px;
+}
+.news_h2_title {
+	color: var(--gray-900, #1E212C);
+	text-align: center;
+	font-family: Ubuntu;
+	font-size: 64px;
+	font-weight: 700;
+	line-height: 120%; /* 76.8px */
+	letter-spacing: 1px;
+	padding-bottom: 50px;
+}
+.apInfoP_orange {
+	color: rgba(255, 90, 48, 1);
+}
+.news_content_info {
+	width: 100%;
+	height: auto;
+	padding: 80px 0px;
+}
+.news_banner_info {
+	width: 100%;
+	height: auto;
+}
+.news_banner_img {
+	width: 100%;
+	object-fit: cover;
+}
+.news_content_content {
+	max-width: 810px;
+	margin: 0px auto;
+	height: auto;
+	padding: 50px 0px;
+}
+/*секция - вывод комментариев к новости + форма для добавления новостей*/
+.comments_main_block {
+	width: 100%;
+	height: auto;
+}
+.block_comments {
+	max-width: 810px;
+	margin: 0px auto;
+}
+.comments_list {
+	width: 100%;
+	height: auto;
+	padding: 60px 0px;
+}
+.comment_items {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+	border-bottom: 1px solid black;
+}
+.comment_info {
+	height: 100%;
+	padding-bottom: 30px;
+	min-width: 200px;
+	padding-right: 30px;
+	overflow: hidden;
+}
+.comment_info_p_18 {
+	color: var(--gray-900, #1E212C);
+	font-family: Ubuntu;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 150%; /* 27px */
+}
+.comment_info_p_14 {
+	color: var(--gray-800, #424551);
+	font-family: Ubuntu;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 160%; /* 25.6px */
+}
+.comment_content {
+	flex-grow: 1;
+}
+.reply {
+	color: var(--gray-700, #787A80);
+	font-family: Ubuntu;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%;
+	background: none;
+	padding-top: 15px;
+	text-transform: capitalize;
+	position: relative;
+	margin-left: 30px;
+}
+.reply::before {
+	content: '';
+	display: inline-block;
+	background-image: url('../img/news/share-arrow.svg');
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 17px;
+	left: -30px;
+}
+.block_comment_main {
+	width: 100%;
+	height: auto;
+}
+.block_comment_form {
+	max-width: 1290px;
+	margin: 0px auto;
+	margin-top: 100px;
+}
+/*Форма отправить комментарий*/
+.block_comment_main {
+	max-width: 810px;
+	margin: 0px auto;
+	padding-bottom: 100px;
+}
+.comment_form {
+	width: 100%;
+	height: auto;
+	
+}
+.form_header_comment {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+
+}
+.name_comment_form label, .name_comment_form label {
+	display: block;
+}
+.name_comment,.email_comment {
+	width: 390px;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	padding: 11px 16px;
+}
+.comment_comment_form {
+	width: 100%;
+	padding-top: 25px;
+}
+.comment {
+	width: 100%;
+	height: 100px;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	padding: 11px 16px;
+	resize: none;
+	opacity: 1;
+	z-index: 2;
+	color: #1E212C;
+}
+.submit_block {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+.submit_comment {
+	border-radius: 4px;
+	background: #FF5A30;
+	padding: 0px 40px;
+	color: var(--white, #FFF);
+	text-align: center;
+	font-family: Ubuntu;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 52px; /* 325% */
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+

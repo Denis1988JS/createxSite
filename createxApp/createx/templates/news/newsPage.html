@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+{% block content %}
+{% include 'include/headerContent.html' %}
+<section class="news_main_block">
+	<div class="news_block">
+		<div class="category_block">
+			<h2 class="h2_center_46">Categories</h2>
+			<div class="category_list">
+				<div>
+					<button value="All" class="category_news_item">
+						All news
+					</button>
+				</div>
+				{% for cat in view.getCategory %}
+				<div>
+					<button value={{cat.id}} class="category_news_item">
+						{{cat.name}}
+					</button>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="news_block_list">
+			{% for new in news %}
+			<div class="news_item">
+				<img src="{{new.img.url}}" alt="{{new.title}}" class="news_item_img">
+				<div class="news_info_block">
+					<a href="{{ new.get_absolute_url }}" target="_blank">
+						<p class="p_20_w700">{{new.title}}</p>
+					</a>
+					
+					<p class="apInfoP">
+						<span>{{new.categoryID}}</span>|
+						<img src="{% static 'img/news/Clock.png' %}" alt="">
+						<span>{{new.date_publish|date:"F d , Y"}}</span>|
+						<img src="{% static 'img/news/Chat.png' %}" alt="">
+						{% if new.newscommentsmodefl_set.count > 0 %}
+						<span>{{new.newscommentsmodefl_set.count}} comments</span>
+						{% else %}
+						<span>No comments</span>
+						{% endif %}
+						<p class="p_16_pd_0">{{new.content|truncatechars:160}}</p>
+					</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="paginator_block">
+			{% if page_obj.has_previous %}
+				<a href="?page={{ page_obj.previous_page_number }}" class="a_panination">&lt;</a>
+				{% endif %}
+			{% for p in paginator.page_range %}
+				{% if page_obj.number == p %}
+				<a href="?page={{ p }}" class="a_panination_active">{{ p }}</a>
+				{% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+				<a href="?page={{ p }}" class="a_panination">{{ p }}</a>
+				{% endif %}
+			{% endfor %}
+			{% if page_obj.has_next %}
+				<a href="?page={{ page_obj.next_page_number }}" class="a_panination">&gt;</a>
+			{% endif %}
+		</div>
+	</div>
+</section>
+<section>
+</section>
+<script type="text/javascript" src="{% static 'js/ajax_news_script.js' %}"></script>
+{% endblock content %}

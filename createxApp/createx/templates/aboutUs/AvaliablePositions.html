@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+{% block content %}
+{% include 'include/headerContent.html' %}
+
+{% if messages %}
+<div class="messages_block">
+	{% for m in messages %}
+	<h2 class="h2_messages">{{m}}</h2>
+	{% endfor %}
+</div>	
+{% endif %}
+
+<section class="main_avaliable_block">
+	<div class="avaliable_positions_block">
+		<div class="avaliable_positions">
+			{% for avaliable in avaliables %}
+			<div class="avaliable_content">
+				<div class="avaliable_content_info">
+					<p class="apInfoP">
+						<img src="{% static 'img/avaliablePosition/outline.svg' %}" alt="#">
+						<span>{{avaliable.placeWork}}</span> | 
+						<img src="{% static 'img/avaliablePosition/Clock.svg' %}" alt="#">
+						<span>{{avaliable.timeWork}}</span></p>
+					<p class="p_20_w700">{{avaliable.title}}</p>
+				</div>
+				<button class="link_btn">Apply now</button>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="number_form_block">
+			<p class="p_20_w700">Didn’t find what you were looking for?</p>
+			<p class="p_18">Send your CV or subscribe to our newsletter to receive information about new vacancies.</p>
+			<div class="block_btn_links">
+				<button class="link_btn subscribe_open">subscribe</button>
+				<button class="link_btn send_open">send cv</button>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="employee_benefits">
+	<div class="block_benefits">
+		<div class="block_content">
+			<h2 class="h2_center_46 ">Employee benefits</h2>
+			<p class="p_center_18_center">There’s always room for talent.</p>
+			<div class="flex_container_block">
+				{% for benefit in benefits %}
+				<div class="panel_block">
+					<div class="center_block_img_panel">
+						<img src="{{benefit.iconBenefits.url}}" alt="{{benefit.titleBenefits}}">
+					</div>
+					<h3 class="panel_h3_center_20">{{benefit.titleBenefits}}</h3>
+					<p class="panel_p_center_16">{{benefit.contentBenefits}}</p>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+
+//Модальное окно форма SuscribeUserSVModelForm модель SuscribeUserSVModel
+	let subscribe_open = document.querySelector('.subscribe_open');
+	let subscribe_form_absolute = document.querySelector('.subscribe_form_absolute');
+	subscribe_open.onclick = () => {
+		subscribe_form_absolute.style.visibility = 'visible';
+	}
+	let close_SV_form = document.querySelector('.close_SV_form');
+	close_SV_form.onclick = () => {
+			subscribe_form_absolute.style.visibility = 'hidden';
+		}
+//Модальное окно форма UserSendCVModelForm модель UserSendCVModel
+	let send_open = document.querySelector('.send_open');
+	let userSend_form_absolute = document.querySelector('.userSend_form_absolute');
+		send_open.onclick = () => {
+			userSend_form_absolute.style.visibility = 'visible';
+		}
+		let close_UserSendCVModel = document.querySelector('.close_UserSendCVModel');
+		close_UserSendCVModel.onclick = () => {
+			userSend_form_absolute.style.visibility = 'hidden';
+		}
+
+</script>
+{% endblock content %}

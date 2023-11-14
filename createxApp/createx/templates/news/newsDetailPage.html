@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+
+{% block content %}
+<section class="new_main_block">
+	<div class="news_block_detail">
+		<h2 class="news_h2_title">
+			{{news.title}}
+		</h2>
+		<div class="news_header_info">
+			<div class="news_info">
+				<p class="apInfoP">
+					<span class="apInfoP_orange">{{news.categoryID}}</span>|
+					<img src="{% static 'img/news/Clock.png' %}" alt="">
+					<span>{{news.date_publish|date:"F d , Y"}}</span>|
+					<img src="{% static 'img/news/Chat.png' %}" alt="">
+					{% if news.newscommentsmodefl_set.count > 0 %}
+					<span>{{news.newscommentsmodefl_set.count}} comments</span>
+					{% else %}
+					<span>No comments</span>
+					{% endif %}
+				</p>
+			</div>
+		</div>
+		<div class="news_content_info">
+			<div class="news_banner_info">
+				<img src="{{news.img.url}}" alt="Фото" class="news_banner_img">
+			</div>
+		</div>
+		<div class="news_content_content">
+			{{news.content|safe}}
+		</div>
+	</div>
+</section>
+<sections class="comments_main_block">
+	<div class="block_comments">
+		<h2 class="h2_center_46">{{news.newscommentsmodefl_set.all.count}} comments</h2>
+		<div class="comments_list">
+			{% for comment in news.newscommentsmodefl_set.all %}
+				<div class="comment_items">
+					<div class="comment_info">
+						<p class="comment_info_p_18">{{comment.user_name}}</p>
+						<p class="comment_info_p_14">{{comment.date_publish|date:"F d Y"}}</p>
+					</div>
+					<div class="comment_content">
+						<p class="comment_info_p_14">{{comment.comment}}</p>
+						<button class="reply" onclick="addComment('{{comment.user_name}}','{{comment.id}}')">reply</button>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="block_comment_main">
+		<h2 class="h2_center_46">Leave your comment</h2>
+		<div class="block_comment_form"> 
+			<form action="{% url 'AddComment' news.id %}" method="post" enctype="multipart/form-data" name="comment_form" class="comment_form">
+				{% csrf_token %}
+				
+				<input type="hidden" name="news" id="news" value="{{news.id}}">
+				<input type="hidden" name="parent" id="parent" value="">
+
+				<div class="form_header_comment">
+					<div class="name_comment_form">
+						<label for="{{form.user_name.id_for_label}}">Name*</label>
+						{{form.user_name}}
+					</div>
+
+					<div class="name_comment_form">
+						<label for="{{form.user_email.id_for_label}}">Email*</label>
+						{{form.user_email}}
+					</div>
+				</div>
+
+				<div class="comment_comment_form">
+					<label for="{{form.comment.id_for_label}}">Your comment*</label>
+					{{form.comment}}
+				</div>
+
+				<div class="submit_block">
+					<input type="submit" value="Post Comment" class="submit_comment">
+				</div>
+			</form>
+		</div>
+	</div>
+</sections>
+<script>
+	function addComment(name, id){
+		document.getElementById("parent").value = id;
+		document.getElementById('id_comment').innerText = `Ответ - ${name} : `
+	}
+</script>
+{% endblock content %}

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+{% block content %}
+{% include 'include/headerContent.html' %}
+<section class="intro_content">
+		<div class="statistic_content">
+			{% for statistic in statistics %}
+			<div class="statistic">
+				<img src="{{statistic.imgUrl.url}}" alt="{{statistic.title}}">
+				<h2 class="h2_46_orange">{{statistic.valueStatistic}}</h2>
+				<p class="p_16_pd_0">{{statistic.title}}</p>
+			</div>
+			{% endfor %}
+		</div>
+
+		<div class="message_employee_block">
+			<div class="employee_block_list">
+				{% for message in messages %}
+				<div class="employee_block_item">
+
+					<div class="employee_block_img">
+						<img src="{{message.employee.imgUrl.url}}" alt="{{message.employee.firstName}}" >
+					</div>
+					<div class="employee_block_content">
+						<p class="p_20_w700">{{message.message}}</p>
+						<div class="employee_info_block">
+							<div class="employee_info">
+								<p class="p_16_700">{{message.employee.firstName}} {{message.employee.secondName}}</p>
+								<p class="p_16_grey_pd0">{{message.employee.jobTitle}}</p>
+							</div>
+							<div class="employee_signature">
+								<img src="{{message.signature.url}}" alt="Подпись">
+							</div>
+						</div>
+					</div>
+
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+</section>
+<section class="our_history_slider_main_block">
+	<div class="history_slider_main_block">
+		{% getOurCoreValues %}
+		<div class="slider_history_block">
+			<div class="main_slider_form_header">
+				<h2 class="h2_46">Our history</h2>
+				<div class="sliderBntRev">
+					<button class="leftSliderRev">&#8592</button>
+					<button class="rightSliderRev">&#8594</button>
+				</div>
+			</div>
+			<div class="history_slider">
+				<ul class="history_list">
+					{% for history in histories %}
+					{% if forloop.first %}
+					<li class="history_list_item active" value="{{history.id}}"><span class="list_circle"><svg width="16" height="16"
+								viewBox="0 0 16 16" fill="none">
+								<circle cx="8" cy="8" r="6" fill="#9A9CA5" stroke="#F4F5F7" stroke-width="4" class="circleSvg active_svg" />
+							</svg></span>{{history.dateHistory|date:"F Y"}}</li>
+					{% else %}
+					<li class="history_list_item" value="{{history.id}}"><span class="list_circle"><svg  width="16" height="16" viewBox="0 0 16 16" fill="none">
+						<circle cx="8" cy="8" r="6" fill="#9A9CA5" stroke="#F4F5F7" stroke-width="4" class="circleSvg"/>
+					</svg></span>{{history.dateHistory|date:"F Y"}}</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+
+					<div class="history_content_img_relative">
+						<div class="history_content_img_abdolute_flex">
+							{% for slider in sliders %}
+							<div class="history_img_container">
+								<img src="{{slider.historySliderPhoto.url}}" alt="{{slider.title}}" class="history_img">
+								<p class="p_16_pd_0">{{slider.content}}</p>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+
+			</div>
+		</div>
+	</div>
+	
+</section>
+<section class="our_team_main_block">
+	{% include 'include/partners.html' %}
+	<div class="our_team_block">
+		<h2 class="h2_center_46">Our team</h2>
+		<p class="p_center_18_center">People are at the heart of Createx Construction Bureau</p>
+		<div class="team_block">
+			{% for team in teams %}
+			<div class="team">
+				<img src="{{team.imgUrl.url}}" alt="{{team.firstName}}" class="team_img">
+				<h3 class="panel_h3_center_20">{{team.firstName}} {{team.secondName}}</h3>
+				<p class="p_16_grey_pd0">{{team.jobTitle}}</p>
+			</div>
+			{% endfor %}
+		</div>
+		<p class="p_center_18_center">Become a part of the best team in the construction market of the USA. <a href="{% url 'avaliablePositions' %}" class="link_orange_18">Available Positions</a></p>
+	</div>
+</section>
+<script>
+	//Перемотка слайдера
+	let sliderBntRev = document.querySelector('.sliderBntRev');
+	let slidBlock = document.querySelector('.history_content_img_abdolute_flex')
+	let scrollHistory = 0;
+	let history_img_container = document.querySelector('.history_img_container')
+	let slidBlockLen = ((slidBlock.children.length-1)*(history_img_container.clientWidth+5))*-1;
+	sliderBntRev.addEventListener('click', function(event){
+		target = event.target;
+		if (target.className == "leftSliderRev" && scrollHistory > slidBlockLen ){
+		scrollHistory -=815;
+		slidBlock.style.left = scrollHistory + 'px';
+		}
+		else if (target.className == "rightSliderRev" && scrollHistory < 0) {
+			scrollHistory += 815;
+			slidBlock.style.left = scrollHistory + 'px'
+		}
+	})
+</script>
+<script type="text/javascript" src="{% static 'js/slider_history_script.js' %}"></script>
+{% endblock content %}

@@ -37,7 +37,7 @@ class OurEmployeeMessage(models.Model):
     isDisplay = models.BooleanField(default=True, verbose_name='Отобразить')
     time_create = models.DateField(auto_now_add=True, verbose_name='Дата создания') #Время создания объекта класса
     def __str__(self):
-        return f'{self.nameDirector}'
+        return f'{self.title}'
     class Meta:
         verbose_name = "Послание от сотрудника"
         verbose_name_plural = "Послание от сотрудников"

@@ -9,7 +9,7 @@
 <section class="main_work_list">
 
 	<div class="work_list_links_block">
-
+		
 		<div class="change_work_default take_work" data-value="All">
 			<div class="value_work" data-value="All">
 			</div>
@@ -21,7 +21,7 @@
 
 		{% for service in services %}
 		<div class="change_work take_work"  data-value="{{service.id}}">
-			<div class="value_work" data-value="{{service.title}}">
+			<div class="value_work" data-value="{{service.title}}" data-id="{{service.id}}">
 			</div>
 			<div class="change_work_item">
 				<img src="{{service.icon.url}}" alt="{{service.title}}">
@@ -31,7 +31,6 @@
 		{% endfor %}
 
 	</div>
-
 
 	<div class="work_list">
 		{% for work in works %}
