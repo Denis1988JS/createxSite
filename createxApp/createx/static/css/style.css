@@ -1969,4 +1969,107 @@ body {
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
 }
+.contact_main_block {
+	width: 100%;
+	height: auto;
+}
+.contact_block {
+	max-width: 1230px;
+	height: auto;
+	margin: 0px auto;
+	padding: 80px 0px;
+}
+.main_form_block {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	gap: 130px;
+}
+.form_block {
+	flex-grow: 1;
+	
+}
+.form_contact {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
 
+.form_block_content {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 30px;
+}
+.form_block_content input, select {
+	padding: 13px 16px;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	flex-grow: 1;
+	width: 285px;
+}
+.form_contact label {
+	display: block;
+}
+#id_contact {
+	width: 285px;
+	display: inline-flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding-top: 22px;
+}
+#id_contact label {
+	display: inline;
+}
+#id_contact input {
+	width: fit-content;
+}
+.form_block_right , .form_block_left {
+	height: 86px;
+}
+.form_contact textarea {
+	width: 100%;
+	border-radius: 4px;
+	border: 1px solid var(--gray-400, #D7DADD);
+	background: var(--gray-200, #F4F5F6);
+	resize: none;
+	padding: 13px 16px;
+}
+.flex_checkbox_block_contact {
+	width: 287px;
+	display: flex;
+	align-items: flex-start;
+	padding: 0;
+}
+.flex_checkbox_block_contact input{
+	padding-top: 0;
+}
+.contact_submit {
+	width: fit-content;
+	height: 52px;
+	padding: 0px 40px;
+	border-radius: 4px;
+	background:  #FF5A30;
+	color: var(--white, #FFF);
+	text-align: center;
+	font-family: Ubuntu;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 52px; /* 325% */
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+.offices_main_block {
+	width: 100%;
+	height: auto;
+	background:  #F4F5F6;
+}
+.offices_block {
+	max-width: 1230px;
+	margin: 0px auto;
+	padding: 100px 0px;
+}

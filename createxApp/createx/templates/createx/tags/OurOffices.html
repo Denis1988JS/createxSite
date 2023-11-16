@@ -1,0 +1,16 @@
+<div class="block_content">
+	<h2 class="h2_center_46 ">Our offices</h2>
+	<p class="p_center_18_center">Give us a call, send us a note or visit our office. We can’t wait to hear from you!</p>
+	<div class="flex_container_block">
+		{% for office in offices %}
+		<div class="panel_block offic_block">
+			<h3 class="panel_h3_20">{{office.nameOffice}}, {{office.country}}</h3>
+			<p class="panel_p_16_grey">{{office.street}}</p>
+			<p class="panel_p_16_grey">{{office.indexAdress}}</p>
+			<p class="panel_p_16_grey">Call: <a href="tel:+{{office.callPhone}}" class="link_office">{{office.callPhone}}</a></p>
+			<p class="panel_p_16_grey">Email: <a href="mailto:{{office.emailOffice}}" class="link_office">{{office.emailOffice}}</a></p>
+			<p class="panel_p_16_grey">Schedule: {{office.dayStart|slice:3}} - {{office.dayStop|slice:3}}, {{office.timeStart}}:00 - {{office.timeStop}}:00</p>
+		</div>
+		{% endfor %}
+	</div>
+</div>

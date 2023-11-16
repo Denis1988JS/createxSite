@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'work.apps.WorkConfig', # Приложение work
     'aboutUs.apps.AboutusConfig', # Приложение aboutUs
     'news.apps.NewsConfig', # Приложение news
+    'contacts.apps.ContactsConfig', # Приложение contacts
     #Дополнительные приложения
     'ckeditor', #ckeditor для админки
     'ckeditor_uploader', #ckeditor для загрузки изображений

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load createx_tag %}
+{% load static %}
+
+{% block content %}
+{% include 'include/headerContent.html' %}
+<section class="contact_main_block">
+	<div class="contact_block">
+		<h2 class="h2_center_46 ">Contact us</h2>
+		<p class="p_center_18_center">
+			Please complete the form. Detailed information will help us to make a tuned offer.
+		</p>
+		<div class="main_form_block">
+			<div>
+				<img src="{% static 'img/contacts/image.jpg' %}" alt="Фото">
+			</div>
+			<div class="form_block">
+				<form action="{% url 'AddContact' %}" method="post" class="form_contact">
+					{% csrf_token %}
+					<div class="form_block_content">
+						<div>
+							<label for="{{form.name.id_for_label}}">Name*</label>
+							{{form.name}}
+						</div>
+						<div>
+							<label for="{{form.interesting.id_for_label}}">I am interested in</label>
+							{{form.interesting}}
+						</div>
+					</div>
+					<div class="form_block_content">
+						<div>
+							<label for="{{form.phoneNumberUser.id_for_label}}">Phone*</label>
+							{{form.phoneNumberUser}}
+						</div>
+						<div>
+							<label for="{{form.location.id_for_label}}">Location*</label>
+							{{form.location}}
+						</div>
+					</div>
+					<div class="form_block_content">
+						<div class="form_block_left">
+							<label for="{{form.userEmail.id_for_label}}">Email*</label>
+							{{form.userEmail}}
+						</div>
+						<div class="form_block_right">
+							<p>Preferred contact method</p>
+							{{form.contact}}
+						</div>
+					</div>
+					{{form.userMessage}}
+					<div class="form_block_content">
+						<div class="flex_checkbox_block_contact">
+							{{form.userAgree}}
+							<label for="id_userAgree" id="iAgree_label">I agree to receive communications from Createx Construction Bureau.</label>
+						</div>
+						<button type="submit" class="contact_submit">
+							send request
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{% if messages %}
+	<div class="messages_block">
+		{% for m in messages %}
+		<h2 class="h2_messages">{{m}}</h2>
+		{% endfor %}
+	</div>
+	{% endif %}
+</section>
+
+<section class="offices_main_block">
+	<div class="offices_block">
+		{% OurOffices %}
+	</div>
+	
+</section>
+
+{% endblock content %}

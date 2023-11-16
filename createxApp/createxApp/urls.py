@@ -29,6 +29,7 @@ urlpatterns = [
     path('work/', include('work.urls')),#Маршруты из приложения work
     path('aboutUs/', include('aboutUs.urls')),#Маршруты из приложения work
     path('news/', include('news.urls')),#Маршруты из приложения news
+    path('contacts/', include('contacts.urls')),#Маршруты из приложения contacts
 ]
 
 #Добавление графических файлов

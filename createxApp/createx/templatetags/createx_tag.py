@@ -1,4 +1,6 @@
 from django import template
+
+from aboutUs.models import OurOfficesModel
 from createx.models import MainSliderModel, OurCoreValues, OurClientsReviews
 from services.models import OurBenefits
 
@@ -32,3 +34,8 @@ def getOurBenefits():
     benefits = OurBenefits.objects.all()
     return {"benefits": benefits}
 
+#Передаем шаблон через inclusion_tag - модель OurOfficesModel
+@register.inclusion_tag('createx/tags/OurOffices.html')
+def OurOffices():
+    offices = OurOfficesModel.objects.all()
+    return {"offices": offices}
