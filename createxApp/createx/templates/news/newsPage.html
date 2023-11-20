@@ -37,11 +37,13 @@
 						<img src="{% static 'img/news/Clock.png' %}" alt="">
 						<span>{{new.date_publish|date:"F d , Y"}}</span>|
 						<img src="{% static 'img/news/Chat.png' %}" alt="">
-						{% if new.newscommentsmodefl_set.count > 0 %}
-						<span>{{new.newscommentsmodefl_set.count}} comments</span>
-						{% else %}
+
+						{% if new.get_comment_count == 0 %}
 						<span>No comments</span>
+						{% else %}
+						<span>{{ new.get_comment_count }} comments</span>
 						{% endif %}
+						
 						<p class="p_16_pd_0">{{new.content|truncatechars:160}}</p>
 					</p>
 				</div>

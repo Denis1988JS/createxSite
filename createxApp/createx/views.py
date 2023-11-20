@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView,View
 
+from news.models import NewsModel
 from services.models import OurServices
 from work.models import OurWork
 from .forms import UserSubscribeForm, DiscussForUserForm,AskFromUserForm
@@ -20,7 +21,8 @@ class Homepage(FormsMixin, TemplateView):
         context['AskFromUserForm'] = AskFromUserForm
         context['services'] = OurServices.objects.filter(is_active=True)
         context['partners'] = OurPartners.objects.all()
-        context['sliderForm'] = OurWork.objects.all().reverse()[1:7]
+        context['news'] = NewsModel.objects.all().select_related('categoryID')[0:3]
+        context['sliderForm'] = OurWork.objects.all().select_related('objectID').reverse()[1:7]
         context['slider_name'] = 'Browse our selected projects and learn more about our work'
         context = dict(list(context.items()) + list(c_def.items()))
         return context

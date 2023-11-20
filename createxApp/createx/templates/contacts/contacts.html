@@ -74,7 +74,21 @@
 	<div class="offices_block">
 		{% OurOffices %}
 	</div>
-	
+	<div class="find_us">
+		{% get_soc_links as soc_links %}
+		{% for c in soc_links %}
+		<div class="block_first">
+
+				<a href="#" ><img src="{{ c.imgLink_1.url}}" alt="фото" class="img_first"></a>
+
+
+				<a href="#" ><img src="{{ c.imgLink_2.url}}" alt="фото" class="img_second"></a>
+
+			
+		</div>
+		
+		{% endfor %}
+	</div>
 </section>
 
 {% endblock content %}

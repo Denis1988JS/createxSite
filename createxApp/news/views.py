@@ -52,7 +52,7 @@ class NewsPage(CategoryAll,FormsMixin,ListView):
     template_name = 'news/newspage.html'
     context_object_name = 'news'
     paginate_by = 4
-    queryset = NewsModel.objects.filter(is_published=True)
+    queryset = NewsModel.objects.filter(is_published=True).select_related('categoryID')
 
     def post(self, request, *args, **kwargs):
         rb = eval(request.body.decode())

@@ -1,5 +1,8 @@
 {% load static %}
+{% load createx_tag %}
+
 <div class="footer_block">
+
 	<footer class="footer_block_content">
 		<div class="footer_header_block">
 			<div class="footer_header_left">
@@ -10,11 +13,12 @@
 						</a>
 					</div>
 					<div class="footer_social_links">
-						<a href="#"><img src="{% static 'img/footer/Whatsapp.svg' %}" alt="фото"></a>
-						<a href="#"><img src="{% static 'img/footer/Messanger.svg' %}" alt="фото"></a>
-						<a href="#"><img src="{% static 'img/footer/Facebook.svg' %}" alt="фото"></a>
-						<a href="#"><img src="{% static 'img/footer/Twitter.svg' %}" alt="фото"></a>
-						<a href="#"><img src="{% static 'img/footer/YouTube.svg' %}" alt="фото"></a>
+						{% get_soc_links as soc_links %}
+						{% for c in soc_links %}
+						<a href="#"><img src="{{ c.imgLink_2_hover.url}}" alt="фото"></a>
+						{% endfor %}
+						
+						
 					</div>
 				</div>
 				<p class="footer_content">

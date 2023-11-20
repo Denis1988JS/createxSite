@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-p&(ee$h7%yd!1(%-g%blc9e=pd7i3vs$pbgn!7u-(#r**v=)v-
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -49,7 +51,7 @@ INSTALLED_APPS = [
     'ckeditor', #ckeditor для админки
     'ckeditor_uploader', #ckeditor для загрузки изображений
     'bootstrap4',  # бутстрап 4
-
+    'debug_toolbar', #debug
 ]
 
 MIDDLEWARE = [
@@ -60,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'createxApp.urls'

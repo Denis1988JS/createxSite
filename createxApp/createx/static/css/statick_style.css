@@ -14,6 +14,14 @@
 	font-weight: 700;
 	line-height: 130%;
 }
+.h2_center_46_pt50 {
+	color: var(--gray-900, #1E212C);
+	text-align: center;
+	font-size: 46px;
+	font-weight: 700;
+	line-height: 130%;
+	padding-bottom: 50px;
+}
 .h2_46 {
 	color: var(--gray-900, #1E212C);
 	font-size: 46px;

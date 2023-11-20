@@ -44,7 +44,7 @@ class WorkPage(FormsMixin,ListView):
         context['title'] = 'Work'
         context['header'] = HeaderContent.objects.get(title='OUR WORK')
         context['services'] = OurServices.objects.filter(is_active=True)
-        context['works'] = OurWork.objects.all()[0:6]
+        context['works'] = OurWork.objects.all().select_related('objectID')[0:6]
         context = dict(list(context.items()) + list(c_def.items()))
         return context
 

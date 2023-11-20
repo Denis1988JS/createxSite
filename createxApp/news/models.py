@@ -31,9 +31,15 @@ class NewsModel(models.Model):
 
     def get_absolute_url(self):#Ссылка на url по слагу
         return reverse('newsDetail', kwargs={'slug':self.slug})
+    def get_comment_count(self):
+        len = self.newscommentsmodefl_set.filter(news__id=self.pk)
+        counter = len.count()
+
+        return counter
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
+
 
 class NewsCommentsModefl(models.Model):
     #Комментарии к новости

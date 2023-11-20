@@ -87,5 +87,67 @@
 	{% include 'include/partners.html' %}
 	{% getOurClientsReviews %}
 </section>
+<section class="recent_news_main_block">
+	<div class="recent_news_block">
+		<h2 class="h2_center_46_pt50">Recent news</h2>
+
+		<div class="news_block_column">
+			{% for new in news %}
+			{% if forloop.first %}
+			<div class="news_item_big_float">
+				<img src="{{new.img.url}}" alt="{{new.title}}" class="news_item_img ">
+				<div class="news_info_block">
+					<a href="{{ new.get_absolute_url }}" target="_blank">
+						<p class="p_20_w700">{{new.title}}</p>
+					</a>
+					<p class="apInfoP">
+						<span>{{new.categoryID}}</span>|
+						<img src="{% static 'img/news/Clock.png' %}" alt="">
+						<span>{{new.date_publish|date:"F d , Y"}}</span>|
+						<img src="{% static 'img/news/Chat.png' %}" alt="">
+			
+						{% if new.get_comment_count == 0 %}
+						<span>No comments</span>
+						{% else %}
+						<span>{{ new.get_comment_count }} comments</span>
+						{% endif %}
+			
+					<p class="p_16_pd_0">{{new.content|truncatechars:160}}</p>
+					</p>
+				</div>
+			</div>
+			{% else %}
+			<div class="news_item_smal inlineDiv">
+				<img src="{{new.img.url}}" alt="{{new.title}}" class="news_item_img_smal">
+				<div class="news_info_block_smal">
+					<a href="{{ new.get_absolute_url }}" target="_blank">
+						<p class="p_20_w700">{{new.title}}</p>
+					</a>
+					<p class="apInfoP">
+						<span>{{new.categoryID}}</span>|
+						<img src="{% static 'img/news/Clock.png' %}" alt="">
+						<span>{{new.date_publish|date:"F d , Y"}}</span>|
+						<img src="{% static 'img/news/Chat.png' %}" alt="">
+						{% if new.get_comment_count == 0 %}
+						<span>No comments</span>
+						{% else %}
+						<span>{{ new.get_comment_count }} comments</span>
+						{% endif %}
+					</p>
+				</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+		</div>
+		<div class="block_links_to_page">
+			<h3 class="h3_28">Explore all our news posts</h3>
+			<a href="{% url 'news' %}">
+				<button class="link_btn">View all news</button>
+			</a>
+		</div>
+	</div>
+	
+</section>
 <script type="text/javascript" src="{% static 'js/slider_work_script.js' %}"></script>
 {% endblock content %}
