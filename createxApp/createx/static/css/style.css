@@ -2148,9 +2148,11 @@ body {
 	position: relative;
 	width: 33px;
 	height: 33px;
+	z-index: 5;
+
 }
 .img_first {
-	position: relative;
+	position: absolute;
 	z-index: 2;
 	width: 33px;
 	height: 33px;
@@ -2161,4 +2163,10 @@ body {
 	left: 0;
 	top: 0;
 	visibility: hidden;
+}
+.block_first:hover .img_first{
+	visibility: hidden;
+}
+.block_first:hover .img_second{
+	visibility: visible;
 }
