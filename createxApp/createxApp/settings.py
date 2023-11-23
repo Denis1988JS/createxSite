@@ -47,11 +47,13 @@ INSTALLED_APPS = [
     'aboutUs.apps.AboutusConfig', # Приложение aboutUs
     'news.apps.NewsConfig', # Приложение news
     'contacts.apps.ContactsConfig', # Приложение contacts
+    'apiCreatexDrf.apps.ApicreatexdrfConfig',#Приложение DRF
     #Дополнительные приложения
     'ckeditor', #ckeditor для админки
     'ckeditor_uploader', #ckeditor для загрузки изображений
     'bootstrap4',  # бутстрап 4
     'debug_toolbar', #debug
+    'rest_framework',#DFR
 ]
 
 MIDDLEWARE = [

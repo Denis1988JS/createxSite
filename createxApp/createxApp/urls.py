@@ -30,6 +30,7 @@ urlpatterns = [
     path('aboutUs/', include('aboutUs.urls')),#Маршруты из приложения work
     path('news/', include('news.urls')),#Маршруты из приложения news
     path('contacts/', include('contacts.urls')),#Маршруты из приложения contacts
+    path('apiCreatex/',include('apiCreatexDrf.urls')),#Маршруты apiCreatexDrf
 ]
 
 #Добавление графических файлов
