@@ -1,7 +1,7 @@
 /*Слайдер выполненных работ */
 
 
-let sliderBtn = document.querySelector('.sliderBtn');
+let sliderBtn = document.querySelector('.sliderBntRev');
 let slider_item = document.querySelectorAll('.slider_item');
 let bigPhotoSlider = document.querySelector('.slider_big_photo');
 let counter = 0

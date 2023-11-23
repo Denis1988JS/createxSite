@@ -11,6 +11,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Ubuntu:wght@400;700&display=swap"
 		rel="stylesheet">
+		<link rel="icon" href="{% static 'img/header/logo.svg' %}">
 	{% bootstrap_css %}
 		<link rel="stylesheet" href="{% static 'css/min_style.css' %}">
 		<link rel="stylesheet" href="{% static 'css/statick_style.css' %}">
@@ -19,22 +20,11 @@
 	<title>{{title}}</title>
 </head>
 <body>
-	<div class="subscribe_form_absolute">
-		<div class="subscribe_form_sticky">
-			{% include 'include/SuscribeUserSVModelForm.html' %}
-			<div class="subscribe_form_opacity"></div>
-		</div>
-	</div>
-
-	<div class="userSend_form_absolute">
-		<div class="userSend_form_sticky">
-			{% include 'include/UserSendCVModelForm.html' %}
-			<div class="userSend_form_opacity"></div>
-		</div>
-	</div>
-
+	
 	<div class="wrapper">
-
+		{% block form %}
+		
+		{% endblock form %}
 		
 		{% include 'include/header.html' %}
 		<main class="main">

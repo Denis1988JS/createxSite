@@ -35,7 +35,6 @@ function addNewSlider(obj) {
 	history_content_img_abdolute_flex.append(history_img_container);
 
 	//Меняем стили списка истории
-		console.log(obj.history)
 		let history_list_item = document.querySelectorAll('.history_list_item')
 		history_list_item.forEach(e => {
 			if (e.value == obj.history) {

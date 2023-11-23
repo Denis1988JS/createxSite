@@ -2,6 +2,23 @@
 {% load createx_tag %}
 {% load static %}
 
+{% block form %}
+<div class="subscribe_form_absolute">
+	<div class="subscribe_form_sticky">
+		{% include 'include/SuscribeUserSVModelForm.html' %}
+		<div class="subscribe_form_opacity"></div>
+	</div>
+</div>
+
+<div class="userSend_form_absolute">
+	<div class="userSend_form_sticky">
+		{% include 'include/UserSendCVModelForm.html' %}
+		<div class="userSend_form_opacity"></div>
+	</div>
+</div>
+{% endblock form %}
+
+
 {% block content %}
 {% include 'include/headerContent.html' %}
 
