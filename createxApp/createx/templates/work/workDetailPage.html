@@ -18,7 +18,7 @@
 			<img src="{{first_slide.imgWork.url}}" alt="{{work.title}}" class="slider_big_photo">
 		</div>
 		<div class="photo_slider_list">
-			{% for slide in work.photosliderwork_set.all %}
+			{% for slide in work.photoSlider.all %}
 				<img src="{{slide.imgWork.url}}" alt="{{slide.title}}" class="slider_item">
 			{% endfor %}
 		</div>
@@ -26,7 +26,7 @@
 </section>
 <section class="about_project_main_block">
 	<div class="about_project_content">
-		{% for data in work.ourworkdata_set.all %}
+		{% for data in work.workData.all %}
 		<div class="project_title">
 			<h2 class="h2_46">Project goal</h2>
 			<p class="p_18">{{data.content}}</p>

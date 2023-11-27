@@ -20,7 +20,7 @@ class OurWork(models.Model):
     slug = models.SlugField(max_length=125,unique=True, db_index=True, verbose_name='URL-проекта' )
     objectID = models.ForeignKey(ObjectsOfOurWork, on_delete=models.CASCADE, verbose_name='Объект проекта')
     img = models.ImageField(upload_to='work/%Y/%m/%d/', verbose_name='Главное фото проекта')
-    workServicesID = models.ForeignKey(OurServices,on_delete=models.CASCADE, verbose_name='Вид услуги проекта')
+    workServicesID = models.ForeignKey(OurServices, related_name='works',on_delete=models.CASCADE, verbose_name='Вид услуги проекта')
     def __str__(self):
         return f'{self.title}'
     def get_absolute_url(self):#Ссылка на url по слагу
@@ -33,7 +33,7 @@ class OurWork(models.Model):
 class PhotoSliderWork(models.Model):
     title = models.CharField(max_length=150, verbose_name='Описание слайдера')
     imgWork = models.ImageField(upload_to='work/WorkSlider/%Y/%m/%d/', verbose_name='Слайдер фото работ')
-    workID = models.ForeignKey(OurWork, on_delete=models.CASCADE, verbose_name='Проект')
+    workID = models.ForeignKey(OurWork, related_name='photoSlider', on_delete=models.CASCADE, verbose_name='Проект')
     def __str__(self):
         return f'{self.title}'
     class Meta:
@@ -49,7 +49,7 @@ class OurWorkData(models.Model):
     size = models.IntegerField(verbose_name='Объем работ')
     price = models.CharField(max_length=20, verbose_name='Стоимость проекта')
     completed = models.DateField()
-    work = models.ForeignKey(OurWork, on_delete=models.CASCADE, verbose_name='Проект')
+    work = models.ForeignKey(OurWork, related_name='workData', on_delete=models.CASCADE, verbose_name='Проект')
     def __str__(self):
         return f'{self.location} {self.work}'
     class Meta:

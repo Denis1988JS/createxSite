@@ -1,11 +1,12 @@
 /*Слайдер выполненных работ */
 
 
-let sliderBtn = document.querySelector('.sliderBntRev');
+let sliderBtn = document.querySelector('.sliderBtn');
 let slider_item = document.querySelectorAll('.slider_item');
 let bigPhotoSlider = document.querySelector('.slider_big_photo');
 let counter = 0
 sliderBtn.addEventListener('click', function(e){
+	console.log('Событие')
 	target = e.target;
 	if (target.className == 'sliderBtnLeft' && counter > 0) {
 		counter -=1;

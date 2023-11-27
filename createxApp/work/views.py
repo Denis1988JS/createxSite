@@ -58,7 +58,7 @@ class WorkDetail(FormsMixin,DetailView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context()
         context['title'] = context['object']
-        context['first_slide'] = context['object'].photosliderwork_set.first()
+        context['first_slide'] = context['object'].photoSlider.first()
         context['sliderForm'] = OurWork.objects.filter(objectID__name = context['object'].objectID)
         context['slider_name'] = 'Similar projects'
         context = dict(list(context.items()) + list(c_def.items()))

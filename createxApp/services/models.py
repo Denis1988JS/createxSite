@@ -21,12 +21,11 @@ class OurServices(models.Model):
         verbose_name = "Наша услуга"
         verbose_name_plural = "Наши услуги"
 
-
 class ourOfferServices(models.Model):
     # Модель оферта к сервису(услуги) - ourOfferServices
     titleOffer = models.CharField(max_length=100, verbose_name='Заголовок сервиса')
     contentOffer = models.TextField(max_length=1000, verbose_name='Описание сервиса')
-    servicesID = models.ForeignKey(OurServices, on_delete=models.CASCADE, verbose_name='Наименование услуги')
+    servicesID = models.ForeignKey(OurServices, related_name='offers',on_delete=models.CASCADE, verbose_name='Наименование услуги')
     def __str__(self):
         return f'{self.titleOffer}'
     class Meta:
