@@ -3,24 +3,24 @@ from  rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 
 from createx.models import AskFromUser, UserSubscribe, DiscussForUser
-from news.models import NewsModel
+from news.models import NewsModel, NewsCommentsModefl
 from services.models import OurServices, ourOfferServices
 from work.models import OurWork, PhotoSliderWork, OurWorkData
 
 
+
+#Сериализаторы для страницы OurWork - наши работы + выполненная работа детльно
+#1.Вывод - Списка работ + объект проекта + вид услуги + слайдер к выполненной работе + описание работы
 #Сериализатор - описание работы OurWorkData
 class OurWorkDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurWorkData
         fields = "__all__"
-
-
 #Сериализатор - слайдер модели PhotoSliderWork
 class PhotoSliderWorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = PhotoSliderWork
         fields = "__all__"
-
 #Сериализатор - выполненные работы/услуги
 class OurWorkSerializer(serializers.ModelSerializer):
     #Чтобы показать не id - связанных моделей а имена моделей
@@ -32,6 +32,8 @@ class OurWorkSerializer(serializers.ModelSerializer):
         model = OurWork
         fields = "__all__"
 
+
+#Сериализаторы для страницы OurServices - наши услуги + услуга детально
 #Сериализатор - оферты к сервису - ourOfferServices
 class OurOfferServicesSerializer(serializers.ModelSerializer):
     servicesID = serializers.SlugRelatedField(slug_field="title", read_only=True)
@@ -53,8 +55,25 @@ class OurServicesDetailSerializer(serializers.ModelSerializer):
         model = OurServices
         fields = "__all__"
 
+#Сериализаторы для страницы NewsModel - все новости + новость
+#Где одна новость - комментарии + добавить комментарий
+
+class NewsCommentsModeflSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsCommentsModefl
+        fields = "__all__"
+    def get(self, request):
+        comments = NewsCommentsModefl.objects.filter(is_published=True)
+        return Response({'comments': comments})
+
+    def post(self, request):
+        serializer = NewsCommentsModeflSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({'comments': serializer.data})
 #Сериализатор модели NewsModel - новости
 class NewsModelSerializer(serializers.ModelSerializer):
+    news = NewsCommentsModeflSerializer(many=True)
     categoryID = serializers.SlugRelatedField(slug_field="name", read_only=True)
     class Meta:
         model = NewsModel
@@ -67,8 +86,6 @@ class NewsModelDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewsModel
         fields = "__all__"
-
-
 
 
 #-----------------------------------------------------------#

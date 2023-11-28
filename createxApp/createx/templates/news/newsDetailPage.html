@@ -36,9 +36,9 @@
 </section>
 <sections class="comments_main_block">
 	<div class="block_comments">
-		<h2 class="h2_center_46">{{news.newscommentsmodefl_set.all.count}} comments</h2>
+		<h2 class="h2_center_46">{{news.news.all.count}} comments</h2>
 		<div class="comments_list">
-			{% for comment in news.newscommentsmodefl_set.all %}
+			{% for comment in news.news.all %}
 				<div class="comment_items">
 					<div class="comment_info">
 						<p class="comment_info_p_18">{{comment.user_name}}</p>

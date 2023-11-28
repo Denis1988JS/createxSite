@@ -3,11 +3,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from createx.models import AskFromUser, UserSubscribe, DiscussForUser
-from news.models import NewsModel
+from news.models import NewsModel, NewsCommentsModefl
 from services.models import OurServices, ourOfferServices
 from work.models import OurWork
 from .serializers import OurServicesSerializer, OurServicesDetailSerializer, NewsModelSerializer, AskFromUserSerializer, UserSubscribeSerializer, \
-    DiscussForUserSerializer, OurWorkSerializer, OurOfferServicesSerializer
+    DiscussForUserSerializer, OurWorkSerializer, OurOfferServicesSerializer, NewsCommentsModeflSerializer
 from rest_framework import generics
 
 #Представление - оферты- список к сервису - ourOfferServices
@@ -18,6 +18,10 @@ class OurOfferServicesApiViewDetail(generics.RetrieveAPIView):
     queryset = ourOfferServices.objects.all()
     serializer_class = OurOfferServicesSerializer
 
+
+
+
+#Все для OurServices -----------------------------------------------
 #Представление все услуги модель OurServices - OurServicesSerializer
 class OurServicesApiView(generics.ListAPIView ):
     queryset = OurServices.objects.filter(is_active=True)
@@ -29,6 +33,9 @@ class OurServicesApiViewDetail(generics.RetrieveAPIView):
     serializer_class = OurServicesDetailSerializer
 
 
+
+
+#Все для модели NewsModel ------------------------------------------------
 #Представление все новости модель NewsModel - NewsModelSerializer
 class NewsModelApiView(generics.ListAPIView):
     queryset = NewsModel.objects.filter(is_published=True)
@@ -39,7 +46,13 @@ class NewsModelApiViewDetail(generics.RetrieveAPIView ):
     queryset = NewsModel.objects.filter(is_published=True)
     serializer_class = NewsModelSerializer
 
+#Добавление комментариев к новостям
+class NewsCommentsModeflAdd(generics.ListCreateAPIView):
+    queryset = NewsCommentsModefl.objects.filter(is_published=True)
+    serializer_class = NewsCommentsModeflSerializer
 
+
+#Все для модели - OurWork------------------------------------------------
 #Представление все услуги модель - OurWork
 class OurWorkApiView(generics.ListAPIView):
     queryset = OurWork.objects.all()

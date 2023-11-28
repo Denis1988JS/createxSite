@@ -47,7 +47,7 @@ class NewsCommentsModefl(models.Model):
     user_email = models.EmailField(max_length=100, verbose_name='e-mail комментатора')
     comment = models.TextField(max_length=5000, verbose_name='Комментарий')
     parent = models.ForeignKey('self', verbose_name="Родитель", on_delete=models.SET_NULL, blank=True, null=True)
-    news = models.ForeignKey(NewsModel, on_delete=models.CASCADE, verbose_name='Новость')
+    news = models.ForeignKey(NewsModel, related_name='news', on_delete=models.CASCADE, verbose_name='Новость')
     date_publish = models.DateField(auto_now_add=True, verbose_name='Дата комментария')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
 

@@ -2,7 +2,8 @@ from django.urls import path
 
 
 from apiCreatexDrf.views import OurServicesApiView, OurServicesApiViewDetail, NewsModelApiView, NewsModelApiViewDetail, AskFromUserViewAdd, \
-    UserSubscribeApiView, DiscussForUserApiView, OurWorkApiView, OurWorkApiViewDetail, OurOfferServicesApiView, OurOfferServicesApiViewDetail
+    UserSubscribeApiView, DiscussForUserApiView, OurWorkApiView, OurWorkApiViewDetail, OurOfferServicesApiView, OurOfferServicesApiViewDetail, \
+    NewsCommentsModeflAdd
 
 urlpatterns = [
     path('api/servicesList/',OurServicesApiView.as_view()), #Сериализатор - все услуги
@@ -14,6 +15,8 @@ urlpatterns = [
 
     path('api/newsList/',NewsModelApiView.as_view()),#Сериализатор - все новости
     path('api/newsList/<int:pk>',NewsModelApiViewDetail.as_view()),#Сериализатор -новость
+    path('api/NewsCommentsAdd/',NewsCommentsModeflAdd.as_view()),#Сериализатор добавить коммент к новости
+
 
     path('api/OurWork/',OurWorkApiView.as_view()),#Сериализатор - все услуги/работы
     path('api/OurWork/<int:pk>',OurWorkApiViewDetail.as_view()),#Сериализатор - услуга/работа
