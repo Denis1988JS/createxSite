@@ -38,12 +38,12 @@
 						<span>{{new.date_publish|date:"F d , Y"}}</span>|
 						<img src="{% static 'img/news/Chat.png' %}" alt="">
 
-						{% if new.get_comment_count == 0 %}
+						{% if new.news.all.count == 0 %}
 						<span>No comments</span>
 						{% else %}
-						<span>{{ new.get_comment_count }} comments</span>
+						<span>{{ new.news.all.count }} comments</span>
 						{% endif %}
-						
+
 						<p class="p_16_pd_0">{{new.content|truncatechars:160}}</p>
 					</p>
 				</div>

@@ -109,7 +109,7 @@
 						{% if new.get_comment_count == 0 %}
 						<span>No comments</span>
 						{% else %}
-						<span>{{ new.get_comment_count }} comments</span>
+						<span>comments</span>
 						{% endif %}
 			
 					<p class="p_16_pd_0">{{new.content|truncatechars:160}}</p>
@@ -131,7 +131,7 @@
 						{% if new.get_comment_count == 0 %}
 						<span>No comments</span>
 						{% else %}
-						<span>{{ new.get_comment_count }} comments</span>
+						<span>{{ new.news.all.count }} comments</span>
 						{% endif %}
 					</p>
 				</div>
